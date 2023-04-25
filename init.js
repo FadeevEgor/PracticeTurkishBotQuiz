@@ -17,6 +17,7 @@ hideAnswerButtons();
 // const urlParams = new URLSearchParams(window.location.search);
 // const data = urlParams;
 question_div.innerText = window.location.search;
+counter_div.innerText = "111";
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
