@@ -51,6 +51,7 @@ function finish() {
 function onMainButtonClick() {
     roundNumber++;
     if (roundNumber > N_rounds) {
+        setCounter("finished", ":(");
         finish();
     } else {
         buttons.forEach(button => button.style.visibility = "visible");
