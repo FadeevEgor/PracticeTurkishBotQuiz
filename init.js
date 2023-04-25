@@ -21,12 +21,12 @@ function showAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "visible");
 }
 
-function hideMainButton() {
-    telegram.MainButton.hide();
+function disableMainButton() {
+    telegram.MainButton.disable();
 }
 
-function showMainButton() {
-    telegram.MainButton.show();
+function enableMainButton() {
+    telegram.MainButton.enable();
 }
 
 function colorButtonCorrect(button) {

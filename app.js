@@ -10,7 +10,7 @@ function onAnswerButtonClick(buttonClicked) {
         colorButtonIncorrect(buttonClicked);
     }
     setMainButtonText(i < N_rounds ? "Continue." : "Finish.");
-    showMainButton();
+    enableMainButton();
 }
 
 function sampleOptions(dictionary, question, correctAnswer) {
@@ -42,7 +42,7 @@ function displayQuestion(question, options) {
         buttons[i].style.textAlign = "center";
     }
     showAnswerButtons();
-    hideMainButton();
+    disableMainButton();
 }
 
 function finish() {
