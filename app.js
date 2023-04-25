@@ -27,8 +27,8 @@ buttons.forEach(button => {
 });
 
 function playRound() {
-    setCounter(i, N_rounds);
-    [question, correctAnswer] = dictionary[i];
+    setCounter(roundNumber, N_rounds);
+    [question, correctAnswer] = dictionary[roundNumber - 1];
     options = sampleOptions(dictionary, question, correctAnswer);
     displayQuestion(question, options);
 }
@@ -44,11 +44,19 @@ function displayQuestion(question, options) {
     telegram.MainButton.hide();
 }
 
+function finish() {
+    telegram.close();
+}
+
 telegram.MainButton.onClick(function () {
-    buttons.forEach(button => button.style.visibility = "visible");
-    i++;
-    playRound();
+    roundNumber++;
+    if (roundNumber > N_rounds) {
+        finish()
+    } else {
+        buttons.forEach(button => button.style.visibility = "visible");
+        playRound();
+    }
 });
 
-let i = 0;
+let roundNumber = 0;
 telegram.MainButton.show();
