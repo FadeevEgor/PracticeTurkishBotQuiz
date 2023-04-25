@@ -10,7 +10,7 @@ function onAnswerButtonClick(buttonClicked) {
         colorButtonIncorrect(buttonClicked);
     }
     setMainButtonText(i < N_rounds ? "Continue." : "Finish.");
-    telegram.MainButton.show();
+    showMainButton();
 }
 
 function sampleOptions(dictionary, question, correctAnswer) {
@@ -41,7 +41,8 @@ function displayQuestion(question, options) {
         buttons[i].innerText = options[i];
         buttons[i].style.textAlign = "center";
     }
-    telegram.MainButton.hide();
+    showAnswerButtons();
+    hideMainButton();
 }
 
 function finish() {
@@ -54,7 +55,6 @@ function onMainButtonClick() {
         setCounter("finished", ":(");
         finish();
     } else {
-        buttons.forEach(button => button.style.visibility = "visible");
         playRound();
     }
 }

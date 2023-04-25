@@ -13,6 +13,21 @@ var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
 buttons.forEach(button => button.style.visibility = "hidden");
 
+function hideAnswerButtons() {
+    buttons.forEach(button => button.style.visibility = "hidden");
+}
+
+function showAnswerButtons() {
+    buttons.forEach(button => button.style.visibility = "visible");
+}
+
+function hideMainButton() {
+    telegram.MainButton.hide();
+}
+
+function showMainButton() {
+    telegram.MainButton.show();
+}
 
 function colorButtonCorrect(button) {
     button.style.backgroundColor = "green";
@@ -40,6 +55,7 @@ dictionary = [
     ["ben", "i"],
     ["biz", "we"],
     ["sen", "you"],
+    ["siz", "вы"]
 ];
 dictionary = _.shuffle(dictionary);
 let N_rounds = dictionary.length;
