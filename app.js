@@ -34,7 +34,6 @@ function playRound() {
 }
 
 function displayQuestion(question, options) {
-    telegram.MainButton.hide();
     buttons.forEach(button => button.disabled = false);
     buttons.forEach(button => colorButtonNeutral(button));
     question_div.innerText = question;
@@ -42,6 +41,7 @@ function displayQuestion(question, options) {
         buttons[i].innerText = options[i];
         buttons[i].style.textAlign = "center";
     }
+    // telegram.MainButton.hide();
 }
 
 function finish() {
