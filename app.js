@@ -49,5 +49,5 @@ telegram.MainButton.onClick(function () {
     playRound();
 });
 
-let i = 1;
+let i = 0;
 telegram.MainButton.show();
