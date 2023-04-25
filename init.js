@@ -13,8 +13,6 @@ var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
 buttons.forEach(button => button.style.visibility = "hidden");
 
-
-
 dictionary = [
     ["elma", "apple"],
     ["ben", "i"],
