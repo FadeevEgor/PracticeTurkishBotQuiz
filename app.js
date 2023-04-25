@@ -41,7 +41,7 @@ function displayQuestion(question, options) {
         buttons[i].innerText = options[i];
         buttons[i].style.textAlign = "center";
     }
-    // telegram.MainButton.hide();
+    telegram.MainButton.hide();
 }
 
 function finish() {

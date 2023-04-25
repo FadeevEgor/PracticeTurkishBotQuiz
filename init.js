@@ -13,6 +13,28 @@ var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
 buttons.forEach(button => button.style.visibility = "hidden");
 
+
+function colorButtonCorrect(button) {
+    button.style.backgroundColor = "green";
+}
+
+function colorButtonIncorrect(button) {
+    button.style.backgroundColor = "red";
+}
+
+function colorButtonNeutral(button) {
+    button.style.backgroundColor = theme.button_color;
+}
+
+function setCounter(counter, total) {
+    counter_div.innerText = `${counter}/${total}`;
+}
+
+function setMainButtonText(text) {
+    telegram.MainButton.text = text;
+}
+
+
 dictionary = [
     ["elma", "apple"],
     ["ben", "i"],
