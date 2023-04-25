@@ -14,10 +14,13 @@ var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
 hideAnswerButtons();
+var url = new URL(window.location.href);
+var start_param = url.searchParams.get("start_param");
+var tgStartParam = url.searchParams.get("tgWebAppStartParam");
 // const urlParams = new URLSearchParams(window.location.search);
 // const data = urlParams;
-question_div.innerText = telegram.initDataUnsafe.start_param;
-counter_div.innerText = telegram.initDataUnsafe.start_param;
+question_div.innerText = start_param;
+counter_div.innerText = tgStartParam;
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
