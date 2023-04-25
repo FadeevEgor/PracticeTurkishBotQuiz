@@ -22,11 +22,11 @@ function showAnswerButtons() {
 }
 
 function disableMainButton() {
-    telegram.MainButton.hide();
+    telegram.MainButton.disable();
 }
 
 function enableMainButton() {
-    telegram.MainButton.show();
+    telegram.MainButton.enable();
 }
 
 function colorButtonCorrect(button) {
@@ -59,3 +59,12 @@ dictionary = [
 ];
 dictionary = _.shuffle(dictionary);
 let N_rounds = dictionary.length;
+
+
+function sampleOptions(dictionary, question, correctAnswer) {
+    options = _.sample(dictionary, 4);
+    options = options.filter(option => option != [question, correctAnswer]);
+    options = options.map(option => option[1]).slice(0, 3);
+    options.push(correctAnswer);
+    return _.shuffle(options);
+}

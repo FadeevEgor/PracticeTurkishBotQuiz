@@ -9,19 +9,12 @@ function onAnswerButtonClick(buttonClicked) {
     if (pickedAnswer != correctAnswer) {
         colorButtonIncorrect(buttonClicked);
     }
-    setCounter(-50, 50);
     new_button_text = (roundNumber < N_rounds ? "Continue." : "Finish.");
     setMainButtonText(new_button_text);
-    setCounter(-100, 100);
     enableMainButton();
 }
 
-function sampleOptions(dictionary, question, correctAnswer) {
-    options = _.sample(dictionary, 5);
-    options = options.filter(option => option != [question, correctAnswer]);
-    options = options.map(option => option[1]);
-    return options.slice(0, 4);
-}
+
 
 buttons.forEach(button => {
     button.onclick = function () {
@@ -55,7 +48,6 @@ function finish() {
 function onMainButtonClick() {
     roundNumber++;
     if (roundNumber > N_rounds) {
-        setCounter("finished", ":(");
         finish();
     } else {
         playRound();
