@@ -14,8 +14,6 @@ function onAnswerButtonClick(buttonClicked) {
     showMainButton();
 }
 
-
-
 buttons.forEach(button => {
     button.onclick = function () {
         onAnswerButtonClick(button);

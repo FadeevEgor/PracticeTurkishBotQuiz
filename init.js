@@ -1,3 +1,5 @@
+
+
 var telegram = window.Telegram.WebApp;
 telegram.expand();
 theme = telegram.themeParams;
@@ -12,6 +14,7 @@ var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
 hideAnswerButtons();
+question_div.innerText = window.location.href;
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
