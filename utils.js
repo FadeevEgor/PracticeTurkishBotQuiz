@@ -17,4 +17,3 @@ function setCounter(counter, total) {
 function setMainButtonText(text) {
     telegram.MainButton.text = text;
 }
-

@@ -45,6 +45,7 @@ function displayQuestion(question, options) {
 }
 
 telegram.MainButton.onClick(function () {
+    buttons.forEach(button => button.style.visibility = "visible");
     i++;
     playRound();
 });
