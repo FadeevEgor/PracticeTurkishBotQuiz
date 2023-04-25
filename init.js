@@ -1,4 +1,4 @@
-let telegram = window.Telegram.WebApp;
+var telegram = window.Telegram.WebApp;
 telegram.expand();
 theme = telegram.themeParams;
 
@@ -26,7 +26,7 @@ function disableMainButton() {
 }
 
 function enableMainButton() {
-    setCounter("enabling", ":(");
+    setCounter(-2, 100);
     telegram.MainButton.enable();
 }
 
