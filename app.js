@@ -11,7 +11,7 @@ function onAnswerButtonClick(buttonClicked) {
     }
     new_button_text = (roundNumber < N_rounds ? "Continue." : "Finish.");
     setMainButtonText(new_button_text);
-    enableMainButton();
+    showMainButton();
 }
 
 
@@ -38,7 +38,7 @@ function displayQuestion(question, options) {
         buttons[i].style.textAlign = "center";
     }
     showAnswerButtons();
-    disableMainButton();
+    hideMainButton();
 }
 
 function finish() {
