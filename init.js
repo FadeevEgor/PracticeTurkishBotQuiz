@@ -14,9 +14,9 @@ var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
 hideAnswerButtons();
-const urlParams = new URLSearchParams(window.location.search);
-const data = urlParams;
-question_div.innerText = data;
+// const urlParams = new URLSearchParams(window.location.search);
+// const data = urlParams;
+question_div.innerText = window.location.search;
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
