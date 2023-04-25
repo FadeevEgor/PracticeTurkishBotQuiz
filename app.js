@@ -1,4 +1,4 @@
-function onButtonClick(buttonClicked) {
+function onAnswerButtonClick(buttonClicked) {
     buttons.forEach(button => button.disabled = true);
     buttons.forEach(button => {
         if (button.innerText == correctAnswer) {
@@ -22,7 +22,7 @@ function sampleOptions(dictionary, question, correctAnswer) {
 
 buttons.forEach(button => {
     button.onclick = function () {
-        onButtonClick(button);
+        onAnswerButtonClick(button);
     };
 });
 
@@ -48,7 +48,7 @@ function finish() {
     telegram.close();
 }
 
-telegram.MainButton.onClick(function () {
+function onMainButtonClick() {
     roundNumber++;
     if (roundNumber > N_rounds) {
         finish();
@@ -56,7 +56,9 @@ telegram.MainButton.onClick(function () {
         buttons.forEach(button => button.style.visibility = "visible");
         playRound();
     }
-});
+}
+
 
 let roundNumber = 0;
+telegram.MainButton.onClick(onMainButtonClick);
 telegram.MainButton.show();
