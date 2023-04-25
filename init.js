@@ -15,7 +15,7 @@ var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
 hideAnswerButtons();
 const urlParams = new URLSearchParams(window.location.search);
-const data = urlParams.get('tgWebAppStartParam');
+const data = urlParams;
 question_div.innerText = data;
 
 function hideAnswerButtons() {
