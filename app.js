@@ -51,7 +51,7 @@ function finish() {
 telegram.MainButton.onClick(function () {
     roundNumber++;
     if (roundNumber > N_rounds) {
-        finish()
+        finish();
     } else {
         buttons.forEach(button => button.style.visibility = "visible");
         playRound();
