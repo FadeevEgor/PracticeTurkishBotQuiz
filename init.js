@@ -22,11 +22,11 @@ function showAnswerButtons() {
 }
 
 function disableMainButton() {
-    telegram.MainButton.disable();
+    telegram.MainButton.hide();
 }
 
 function enableMainButton() {
-    telegram.MainButton.enable();
+    telegram.MainButton.show();
 }
 
 function colorButtonCorrect(button) {

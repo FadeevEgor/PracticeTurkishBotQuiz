@@ -10,7 +10,8 @@ function onAnswerButtonClick(buttonClicked) {
         colorButtonIncorrect(buttonClicked);
     }
     setCounter(-50, 50);
-    setMainButtonText(i < N_rounds ? "Continue." : "Finish.");
+    new_button_text = (roundNumber < N_rounds ? "Continue." : "Finish.");
+    setMainButtonText(new_button_text);
     setCounter(-100, 100);
     enableMainButton();
 }
