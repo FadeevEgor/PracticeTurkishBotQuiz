@@ -1,30 +1,3 @@
-function colorButtonCorrect(button) {
-    button.style.backgroundColor = "green";
-}
-
-function colorButtonIncorrect(button) {
-    button.style.backgroundColor = "red";
-}
-
-function colorButtonNeutral(button) {
-    button.style.backgroundColor = theme.button_color;
-}
-
-function setCounter(counter, total) {
-    counter_div.innerText = `${counter}/${total}`;
-}
-
-function displayQuestion(question, options) {
-    i++;
-    buttons.forEach(button => button.disabled = false);
-    buttons.forEach(button => colorButtonNeutral(button));
-    question_div.innerText = question;
-    for (let i = 0; i < 4; i++) {
-        buttons[i].innerText = options[i];
-        buttons[i].style.textAlign = "center";
-    }
-}
-
 function onButtonClick(buttonClicked) {
     buttons.forEach(button => button.disabled = true);
     buttons.forEach(button => {
@@ -36,6 +9,7 @@ function onButtonClick(buttonClicked) {
     if (pickedAnswer != correctAnswer) {
         colorButtonIncorrect(buttonClicked);
     }
+    setMainButtonText(i < N_rounds ? "Continue." : "Finish.");
     telegram.MainButton.show();
 }
 
@@ -52,8 +26,6 @@ buttons.forEach(button => {
     };
 });
 
-
-
 function playRound() {
     setCounter(i, N_rounds);
     [question, correctAnswer] = dictionary[i];
@@ -62,6 +34,6 @@ function playRound() {
 }
 
 telegram.MainButton.onClick(playRound);
-let i = 0;
-playRound();
 
+let i = 1;
+telegram.MainButton.show();

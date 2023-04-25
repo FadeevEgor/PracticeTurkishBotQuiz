@@ -2,7 +2,7 @@ let telegram = window.Telegram.WebApp;
 telegram.expand();
 theme = telegram.themeParams;
 
-telegram.MainButton.text = "Continue";
+setMainButtonText("Start.");
 
 var question_div = document.getElementById("question");
 var counter_div = document.getElementById("counter");
@@ -11,6 +11,9 @@ var button_B = document.getElementById("button_B");
 var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
+
+
+
 
 dictionary = [
     ["elma", "apple"],
