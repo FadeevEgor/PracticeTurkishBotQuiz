@@ -16,8 +16,8 @@ var buttons = [button_A, button_B, button_C, button_D];
 hideAnswerButtons();
 // const urlParams = new URLSearchParams(window.location.search);
 // const data = urlParams;
-question_div.innerText = window.location.href;
-counter_div.innerText = telegram.initDataUnsafe;
+question_div.innerText = telegram.initDataUnsafe.start_param;
+counter_div.innerText = telegram.initDataUnsafe.start_param;
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
