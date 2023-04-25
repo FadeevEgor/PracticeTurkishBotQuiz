@@ -17,7 +17,7 @@ hideAnswerButtons();
 // const urlParams = new URLSearchParams(window.location.search);
 // const data = urlParams;
 question_div.innerText = window.location.href;
-counter_div.innerText = "111";
+counter_div.innerText = telegram.initDataUnsafe;
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
