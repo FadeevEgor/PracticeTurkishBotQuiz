@@ -16,7 +16,7 @@ var buttons = [button_A, button_B, button_C, button_D];
 hideAnswerButtons();
 // const urlParams = new URLSearchParams(window.location.search);
 // const data = urlParams;
-question_div.innerText = window.location.search;
+question_div.innerText = window.location.href;
 counter_div.innerText = "111";
 
 function hideAnswerButtons() {
