@@ -1,7 +1,7 @@
 let tg = window.Telegram.WebApp;
 tg.expand();
-tg.MainButton.text = "Finish!"
-tg.MainButton.show()
+tg.MainButton.text = "Finish!";
+tg.MainButton.show();
 
 
 // text = document.createElement("h1")
