@@ -26,7 +26,6 @@ function disableMainButton() {
 }
 
 function enableMainButton() {
-    setCounter(-2, 100);
     telegram.MainButton.enable();
 }
 
