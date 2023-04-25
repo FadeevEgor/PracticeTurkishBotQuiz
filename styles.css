@@ -12,7 +12,6 @@ body {
 
 button {
     display: block;
-    /* width: 100%; */
     border: none;
     padding: 14px 28px;
     font-size: 16px;
@@ -21,5 +20,4 @@ button {
     margin-bottom: 50px;
     background-color: var(--tg-theme-button-color);
     color: var(--tg-theme-button-text-color);
-    /* background-color: "grey"; */
 }
