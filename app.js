@@ -33,7 +33,21 @@ function playRound() {
     displayQuestion(question, options);
 }
 
-telegram.MainButton.onClick(playRound);
+function displayQuestion(question, options) {
+    buttons.forEach(button => button.disabled = false);
+    buttons.forEach(button => colorButtonNeutral(button));
+    question_div.innerText = question;
+    for (let i = 0; i < 4; i++) {
+        buttons[i].innerText = options[i];
+        buttons[i].style.textAlign = "center";
+    }
+    telegram.MainButton.hide();
+}
+
+telegram.MainButton.onClick(function () {
+    i++;
+    playRound();
+});
 
 let i = 1;
 telegram.MainButton.show();
