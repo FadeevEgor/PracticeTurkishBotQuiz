@@ -37,7 +37,7 @@ class GameState {
     };
 
     isFinish() {
-        return this.currentRoundNumber >= this.nRounds;
+        return this.currentRoundNumber > this.nRounds;
     };
 
     checkAnswer(givenAnswer) {
