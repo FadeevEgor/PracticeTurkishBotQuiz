@@ -12,10 +12,15 @@ button {
     font-size: 24px;
     text-align: center;
     margin-top: 10px;
-    /* margin-bottom: 50px; */
     background-color: var(--tg-theme-button-color);
     background-color: "red";
     color: var(--tg-theme-button-text-color);
+}
+
+table,
+tr,
+td {
+    border: 5px inset var(--tg-theme-button-color);
 }
 
 table {
@@ -27,8 +32,7 @@ table {
     margin-right: 10%;
 }
 
-table,
-tr,
 td {
-    border: 1px inset var(--tg-theme-button-color);
+    text-indent: 10px;
+    height: 36px
 }
