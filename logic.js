@@ -9,8 +9,10 @@ function startScreen() {
 }
 
 function finalScreen() {
-    telegram.MainButton.hide();
+    disableMainButton();
+    setMainButtonText("1");
     clearAllGameElements();
+    setMainButtonText("2");
     // _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
     //     [entry, isCorrect] = x;
     //     [left, right] = entry;
@@ -38,6 +40,7 @@ function onAnswerButtonClick(buttonClicked) {
     } else {
         gameState.correctAnswer();
     }
+    setMainButtonText("Next.");
     enableMainButton();
 }
 
@@ -66,7 +69,7 @@ function displayQuestion(question, options) {
 
 
 function onMainButtonClick() {
-    setMainButtonText("Next.");
+    setMainButtonText("");
     gameState.nextRound();
     if (gameState.isFinish()) {
         finalScreen();
