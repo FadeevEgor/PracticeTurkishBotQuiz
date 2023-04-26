@@ -20,7 +20,7 @@ button {
 table,
 tr,
 td {
-    border: 5px inset var(--tg-theme-button-color);
+    border: 5px var(--tg-theme-button-color);
 }
 
 table {
