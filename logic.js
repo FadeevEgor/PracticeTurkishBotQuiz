@@ -37,6 +37,7 @@ function displayQuestion(question, options) {
 }
 
 function finalScreen() {
+    telegram.MainButton.hide();
     clearAllGameElements();
     _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
         [entry, isCorrect] = x;

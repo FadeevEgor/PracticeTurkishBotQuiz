@@ -12,7 +12,7 @@ buttons.forEach(button => {
     };
 });
 
-index = 1;
+// index = 1; // debug
 counter_div.innerText = index;
 load_dictionary(index).
     then(dictionary => {

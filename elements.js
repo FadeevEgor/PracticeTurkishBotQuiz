@@ -7,7 +7,7 @@ var button_B = document.getElementById("button_B");
 var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
-var debug_button = document.getElementById("button_debug"); // debug
+// var debug_button = document.getElementById("button_debug"); // debug
 hideAnswerButtons();
 
 
