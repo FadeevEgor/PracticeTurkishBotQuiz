@@ -56,11 +56,6 @@ function clearAllGameElements() {
     counter_div.remove();
 }
 
-function prepareTable() {
-    // results_table.style.width = "90%";
-    return;
-}
-
 function newRow(left, right, correct) {
     var row = results_table_body.insertRow();
     color = correct ? green : red;

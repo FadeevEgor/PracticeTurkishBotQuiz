@@ -19,5 +19,4 @@ load_dictionary(index).
         console.log(dictionary);
         gameState.setDictionary(dictionary);
         telegram.MainButton.show();
-        // playRound(gameState);
     });

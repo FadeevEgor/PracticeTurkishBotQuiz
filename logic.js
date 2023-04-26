@@ -38,12 +38,11 @@ function displayQuestion(question, options) {
 
 function finalScreen() {
     clearAllGameElements();
-    prepareTable();
     _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
         [entry, isCorrect] = x;
         [left, right] = entry;
         newRow(left, right, isCorrect);
-    })
+    });
 
     setMainButtonText("Finish.");
     telegram.MainButton.onClick(finish);
