@@ -19,10 +19,11 @@ button {
 }
 
 table {
-    visibility: false;
+    visibility: visible;
     text-align: center;
     font-size: 24px;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    border-color: var(--tg-theme-button-color);
 }

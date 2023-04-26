@@ -19,6 +19,14 @@ function showAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "visible");
 }
 
+function hideQuestion() {
+    question_div.style.visibility = "hidden";
+}
+
+function showQuestion() {
+    question_div.style.visibility = "visible";
+}
+
 function hideMainButton() {
     telegram.MainButton.hide();
 }
@@ -28,15 +36,15 @@ function showMainButton() {
 }
 
 function colorButtonCorrect(button) {
-    button.style.backgroundColor = green;
+    button.style.backgroundColor = correct;
 }
 
 function colorButtonIncorrect(button) {
-    button.style.backgroundColor = red;
+    button.style.backgroundColor = incorrect;
 }
 
 function colorButtonNeutral(button) {
-    button.style.backgroundColor = theme.button_color;
+    button.style.backgroundColor = neutral;
     // button.style.backgroundColor = "grey"; // debug
 }
 
@@ -56,10 +64,12 @@ function clearAllGameElements() {
     counter_div.remove();
 }
 
-function newRow(left, right, correct) {
+function addTableRow(left, right, isCorrect) {
     var row = results_table_body.insertRow();
-    color = correct ? green : red;
-    row.style.backgroundColor = color;
+    if (isCorrect !== undefined) {
+        color = isCorrect ? correct : incorrect;
+        row.style.backgroundColor = color;
+    }
 
     var leftCell = row.insertCell();
     var rightCell = row.insertCell();
@@ -71,4 +81,10 @@ function newRow(left, right, correct) {
     var rightText = document.createTextNode(right);
     leftCell.appendChild(leftText);
     rightCell.appendChild(rightText);
+}
+
+function clearTable() {
+    var new_tbody = document.createElement('tbody');
+    results_table_body.parentNode.replaceChild(new_tbody, results_table_body);
+    results_table_body = new_tbody;
 }

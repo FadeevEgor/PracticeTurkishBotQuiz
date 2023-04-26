@@ -1,3 +1,27 @@
+function startScreen() {
+    hideAnswerButtons();
+    hideQuestion();
+    gameState.dictionary.forEach(entry => {
+        [left, right] = entry;
+        addTableRow(left, right);
+    });
+}
+
+function finalScreen() {
+    telegram.MainButton.hide();
+    clearAllGameElements();
+    _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
+        [entry, isCorrect] = x;
+        [left, right] = entry;
+        addTableRow(left, right, isCorrect);
+    });
+
+    setMainButtonText("Finish.");
+    telegram.MainButton.onClick(finish);
+    telegram.MainButton.show();
+    // debug_button.onclick = finish; // debug
+}
+
 function onAnswerButtonClick(buttonClicked) {
     buttons.forEach(button => button.disabled = true);
     buttons.forEach(button => {
@@ -25,6 +49,8 @@ function playRound() {
 }
 
 function displayQuestion(question, options) {
+    clearTable();
+    showQuestion();
     buttons.forEach(button => button.disabled = false);
     buttons.forEach(button => colorButtonNeutral(button));
     question_div.innerText = question;
@@ -36,20 +62,6 @@ function displayQuestion(question, options) {
     hideMainButton();
 }
 
-function finalScreen() {
-    telegram.MainButton.hide();
-    clearAllGameElements();
-    _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
-        [entry, isCorrect] = x;
-        [left, right] = entry;
-        newRow(left, right, isCorrect);
-    });
-
-    setMainButtonText("Finish.");
-    telegram.MainButton.onClick(finish);
-    telegram.MainButton.show();
-    // debug_button.onclick = finish; // debug
-}
 
 function onMainButtonClick() {
     gameState.nextRound();
