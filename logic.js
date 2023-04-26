@@ -47,6 +47,7 @@ function finalScreen() {
 
     setMainButtonText("Finish.");
     telegram.MainButton.onClick(finish);
+    telegram.MainButton.show();
     // debug_button.onclick = finish; // debug
 }
 

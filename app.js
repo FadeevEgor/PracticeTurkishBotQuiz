@@ -13,6 +13,7 @@ buttons.forEach(button => {
 });
 
 index = 1;
+counter_div.innerText = index;
 load_dictionary(index).
     then(dictionary => {
         console.log(dictionary);
