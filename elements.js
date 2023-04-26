@@ -14,10 +14,6 @@ for (const i of _.range(4)) {
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
-    buttons.forEach(button => {
-        button.style.height = 0;
-        button.style.marginTop = 0;
-    });
 }
 
 function showAnswerButtons() {
