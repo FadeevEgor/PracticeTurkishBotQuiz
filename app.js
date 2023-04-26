@@ -8,8 +8,8 @@ counter_div.innerText = index2;
 gameState = new GameState();
 telegram.MainButton.onClick(onMainButtonClick);
 setMainButtonText("Start.");
-telegram.MainButton.show();
-telegram.MainButton.showProgress();
+showMainButton();
+showProgressMainButton();
 
 // debug_button.onclick = onMainButtonClick; // debug
 buttons.forEach(button => {
@@ -24,6 +24,6 @@ load_dictionary(index2).
         console.log(dictionary);
         gameState.setDictionary(dictionary);
         startScreen();
-        telegram.MainButton.hideProgress();
-        telegram.MainButton.enable();
+        hideProgressMainButton();
+        enableMainButton();
     });

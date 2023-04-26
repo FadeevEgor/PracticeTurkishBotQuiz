@@ -7,9 +7,9 @@ var button_B = document.getElementById("button_B");
 var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
-for (const i of _.range(4)) {
-    buttons[i].style.bottom = i * buttonTotalHeight;
-}
+// for (const i of _.range(4)) {
+//     buttons[i].style.bottom = i * buttonTotalHeight;
+// }
 // var debug_button = document.getElementById("button_debug"); // debug
 
 function hideAnswerButtons() {
@@ -18,10 +18,10 @@ function hideAnswerButtons() {
 
 function showAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "visible");
-    buttons.forEach(button => {
-        button.style.height = buttonHeight;
-        button.style.marginTop = buttonUpperMargin;
-    });
+    // buttons.forEach(button => {
+    //     button.style.height = buttonHeight;
+    //     button.style.marginTop = buttonUpperMargin;
+    // });
 }
 
 function hideQuestion() {
@@ -38,6 +38,22 @@ function hideMainButton() {
 
 function showMainButton() {
     telegram.MainButton.show();
+}
+
+function hideProgressMainButton() {
+    telegram.MainButton.hideProgress();
+}
+
+function showProgressMainButton() {
+    telegram.MainButton.showProgress();
+}
+
+function disableMainButton() {
+    telegram.MainButton.disable();
+}
+
+function enableMainButton() {
+    telegram.MainButton.enable();
 }
 
 function colorButtonCorrect(button) {

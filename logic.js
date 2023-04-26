@@ -40,7 +40,7 @@ function onAnswerButtonClick(buttonClicked) {
         gameState.correctAnswer();
     }
     setMainButtonText("Next.");
-    showMainButton();
+    enableMainButton();
 }
 
 function playRound() {
@@ -63,7 +63,7 @@ function displayQuestion(question, options) {
         buttons[i].style.textAlign = "center";
     }
     showAnswerButtons();
-    hideMainButton();
+    disableMainButton();
 }
 
 
