@@ -1,5 +1,6 @@
 var url = new URL(window.location.href);
-var index = url.searchParams.get("start_param");
+// var index = url.searchParams.get("start_param");
+var index = url.searchParams.get("tgWebAppStartParam");
 question_div.innerText = index;
 
 gameState = new GameState();
