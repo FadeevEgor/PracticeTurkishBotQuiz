@@ -7,16 +7,24 @@ var button_B = document.getElementById("button_B");
 var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
-// var debug_button = document.getElementById("button_debug"); // debug
 hideAnswerButtons();
 
+// var debug_button = document.getElementById("button_debug"); // debug
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
+    buttons.forEach(button => {
+        button.style.height = 0;
+        button.style.marginTop = 0;
+    });
 }
 
 function showAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "visible");
+    buttons.forEach(button => {
+        button.style.height = buttonHeight;
+        button.style.marginTop = buttonUpperMargin;
+    });
 }
 
 function hideQuestion() {
@@ -94,5 +102,5 @@ function hideTable() {
 }
 
 function showTable() {
-    results_table.style.visibility = "hidden";
+    results_table.style.visibility = "visible";
 }

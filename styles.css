@@ -33,6 +33,17 @@ table {
 }
 
 td {
-    text-indent: 10px;
     height: 36px
+}
+
+#counter {
+    float: right;
+    height: 24px;
+    font-size: 24px;
+}
+
+#question {
+    font-size: xx-large;
+    text-align: center;
+    height: 100px;
 }
