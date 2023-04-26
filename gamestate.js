@@ -3,7 +3,7 @@ class GameState {
         this.dictionary = null;
         this.nRounds = -1;
         this.correctness = [];
-        this.currentRoundNumber = 1;
+        this.currentRoundNumber = 0;
     };
 
     setDictionary(dictionary) {
