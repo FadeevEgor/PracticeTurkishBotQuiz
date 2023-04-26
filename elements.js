@@ -8,7 +8,7 @@ var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
 for (const i of _.range(4)) {
-    buttons[i].style.top = questionHeight + counterHeight + i * buttonTotalHeight;
+    buttons[i].style.bottom = i * buttonTotalHeight;
 }
 // var debug_button = document.getElementById("button_debug"); // debug
 
