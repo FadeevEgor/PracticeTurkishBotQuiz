@@ -3,12 +3,21 @@ body {
     color: var(--tg-theme-text-color);
 }
 
+#buttons {
+    bottom: 0;
+    width: 100%;
+    position: sticky;
+    height: calc(var(--tg-viewport-stable-height) - 150px);
+}
+
 button {
     visibility: hidden;
     display: block;
     position: sticky;
     width: 100%;
-    height: calc((var(--tg-viewport-stable-height) - 150px) / 5);
+    height: 25%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
     border: none;
     padding: 14px 28px;
     font-size: 24px;
