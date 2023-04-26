@@ -5,11 +5,9 @@ body {
 
 button {
     visibility: hidden;
-    display: block;
+    position: absolute;
     width: 100%;
     height: calc((var(--tg-viewport-stable-height) - 150px) / 5);
-    border: none;
-    padding: 14px 28px;
     font-size: 24px;
     text-align: center;
     background-color: var(--tg-theme-button-color);
