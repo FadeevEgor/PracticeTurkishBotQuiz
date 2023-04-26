@@ -1,7 +1,7 @@
 var url = new URL(window.location.href);
 // var index = url.searchParams.get("start_param");
-var index1 = url.searchParams.get("tgWebAppStartParam");
-var index2 = telegram.initDataUnsafe.start_param;
+var index1 = parseInt(url.searchParams.get("tgWebAppStartParam"));
+var index2 = parseInt(telegram.initDataUnsafe.start_param);
 setCounter(index1, index2);
 
 gameState = new GameState();
@@ -14,7 +14,6 @@ buttons.forEach(button => {
     };
 });
 
-// index = parseInt(index1);
 load_dictionary(index2).
     then(dictionary => {
         console.log(dictionary);
