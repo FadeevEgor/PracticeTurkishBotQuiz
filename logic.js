@@ -17,11 +17,9 @@ function finalScreen() {
         addTableRow(left, right, isCorrect);
     });
     showTable();
-
-
     setMainButtonText("Finish.");
-    telegram.MainButton.onClick(finish);
-    enableMainButton();
+    // telegram.MainButton.onClick(finish);
+    // enableMainButton();
     // debug_button.onclick = finish; // debug
 }
 
