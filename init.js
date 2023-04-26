@@ -10,5 +10,5 @@ fullScreenHeight = telegram.viewportHeight;
 questionHeight = 150;
 counterHeight = 24;
 buttonTotalHeight = (fullScreenHeight - questionHeight - counterHeight) / 4;
-buttonHeight = 0.9 * buttonTotalHeight;
-buttonUpperMargin = 0.1 * buttonTotalHeight;
+buttonHeight = round(0.9 * buttonTotalHeight);
+buttonUpperMargin = round(0.1 * buttonTotalHeight);
