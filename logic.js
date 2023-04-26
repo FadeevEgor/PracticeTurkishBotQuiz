@@ -1,5 +1,4 @@
 function startScreen() {
-    console.log("here");
     hideAnswerButtons();
     hideQuestion();
     gameState.dictionary.forEach(entry => {
@@ -39,7 +38,6 @@ function onAnswerButtonClick(buttonClicked) {
     } else {
         gameState.correctAnswer();
     }
-    setMainButtonText("Next.");
     enableMainButton();
 }
 
@@ -68,6 +66,7 @@ function displayQuestion(question, options) {
 
 
 function onMainButtonClick() {
+    setMainButtonText("Next.");
     gameState.nextRound();
     if (gameState.isFinish()) {
         finalScreen();

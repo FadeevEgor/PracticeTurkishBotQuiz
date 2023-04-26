@@ -80,6 +80,8 @@ function setMainButtonText(text) {
 }
 
 function clearAllGameElements() {
+    hideAnswerButtons();
+    hideQuestion();
     buttons.forEach(button => button.remove());
     question_div.remove();
     counter_div.remove();
