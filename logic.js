@@ -71,7 +71,7 @@ function displayQuestion(question, options) {
 
 
 function onMainButtonClick() {
-    setMainButtonText(" ");
+    setMainButtonText("Next.");
     gameState.nextRound();
     if (gameState.isFinish()) {
         finalScreen();
