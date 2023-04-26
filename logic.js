@@ -10,21 +10,18 @@ function startScreen() {
 
 function finalScreen() {
     disableMainButton();
-    setMainButtonText("1");
     clearAllGameElements();
-    setMainButtonText("2");
     _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
         [entry, isCorrect] = x;
         [left, right] = entry;
         addTableRow(left, right, isCorrect);
     });
     showTable();
-    setMainButtonText("3");
 
 
-    // setMainButtonText("Finish.");
-    // telegram.MainButton.onClick(finish);
-    // telegram.MainButton.show();
+    setMainButtonText("Finish.");
+    telegram.MainButton.onClick(finish);
+    enableMainButton();
     // debug_button.onclick = finish; // debug
 }
 
