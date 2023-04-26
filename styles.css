@@ -18,8 +18,8 @@ button {
 table,
 tr,
 td {
-    border: 5px var(--tg-theme-button-color);
-    /* border: 5px grey; */
+    border: 5px solid var(--tg-theme-button-color);
+    /* border: 5px solid grey; */
 }
 
 table {
