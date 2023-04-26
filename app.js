@@ -14,7 +14,7 @@ buttons.forEach(button => {
     };
 });
 
-index = index2;
+index = parseInt(index2);
 load_dictionary(index).
     then(dictionary => {
         console.log(dictionary);
