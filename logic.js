@@ -11,17 +11,17 @@ function startScreen() {
 
 function finalScreen() {
     telegram.MainButton.hide();
-    clearAllGameElements();
-    _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
-        [entry, isCorrect] = x;
-        [left, right] = entry;
-        addTableRow(left, right, isCorrect);
-    });
-    showTable();
+    // clearAllGameElements();
+    // _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
+    //     [entry, isCorrect] = x;
+    //     [left, right] = entry;
+    //     addTableRow(left, right, isCorrect);
+    // });
+    // showTable();
 
-    setMainButtonText("Finish.");
-    telegram.MainButton.onClick(finish);
-    telegram.MainButton.show();
+    // setMainButtonText("Finish.");
+    // telegram.MainButton.onClick(finish);
+    // telegram.MainButton.show();
     // debug_button.onclick = finish; // debug
 }
 
