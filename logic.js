@@ -5,6 +5,7 @@ function startScreen() {
         [left, right] = entry;
         addTableRow(left, right);
     });
+    showTable();
 }
 
 function finalScreen() {
@@ -15,6 +16,7 @@ function finalScreen() {
         [left, right] = entry;
         addTableRow(left, right, isCorrect);
     });
+    showTable();
 
     setMainButtonText("Finish.");
     telegram.MainButton.onClick(finish);
@@ -49,6 +51,7 @@ function playRound() {
 }
 
 function displayQuestion(question, options) {
+    hideTable();
     clearTable();
     showQuestion();
     buttons.forEach(button => button.disabled = false);

@@ -24,7 +24,7 @@ td {
 }
 
 table {
-    visibility: visible;
+    visibility: hidden;
     text-align: center;
     font-size: 24px;
     width: 80%;

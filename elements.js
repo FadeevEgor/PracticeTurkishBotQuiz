@@ -88,3 +88,11 @@ function clearTable() {
     results_table_body.parentNode.replaceChild(new_tbody, results_table_body);
     results_table_body = new_tbody;
 }
+
+function hideTable() {
+    results_table.style.visibility = "hidden";
+}
+
+function showTable() {
+    results_table.style.visibility = "hidden";
+}
