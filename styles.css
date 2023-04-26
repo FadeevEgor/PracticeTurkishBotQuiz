@@ -5,6 +5,7 @@ body {
 
 button {
     visibility: hidden;
+    display: block;
     position: sticky;
     width: 100%;
     height: calc((var(--tg-viewport-stable-height) - 150px) / 5);
