@@ -13,12 +13,14 @@ function finalScreen() {
     setMainButtonText("1");
     clearAllGameElements();
     setMainButtonText("2");
-    // _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
-    //     [entry, isCorrect] = x;
-    //     [left, right] = entry;
-    //     addTableRow(left, right, isCorrect);
-    // });
-    // showTable();
+    _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
+        [entry, isCorrect] = x;
+        [left, right] = entry;
+        addTableRow(left, right, isCorrect);
+    });
+    showTable();
+    setMainButtonText("3");
+
 
     // setMainButtonText("Finish.");
     // telegram.MainButton.onClick(finish);
@@ -69,7 +71,7 @@ function displayQuestion(question, options) {
 
 
 function onMainButtonClick() {
-    setMainButtonText("");
+    setMainButtonText(" ");
     gameState.nextRound();
     if (gameState.isFinish()) {
         finalScreen();
