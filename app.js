@@ -14,8 +14,8 @@ buttons.forEach(button => {
     };
 });
 
-index = parseInt(index2);
-load_dictionary(index).
+// index = parseInt(index1);
+load_dictionary(index2).
     then(dictionary => {
         console.log(dictionary);
         gameState.setDictionary(dictionary);
