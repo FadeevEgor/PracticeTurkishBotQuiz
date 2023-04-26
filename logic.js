@@ -1,4 +1,5 @@
 function startScreen() {
+    console.log("here");
     hideAnswerButtons();
     hideQuestion();
     gameState.dictionary.forEach(entry => {
@@ -38,7 +39,7 @@ function onAnswerButtonClick(buttonClicked) {
     } else {
         gameState.correctAnswer();
     }
-    setMainButtonText("Continue.");
+    setMainButtonText("Next.");
     showMainButton();
 }
 

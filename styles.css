@@ -4,16 +4,14 @@ body {
 }
 
 button {
+    visibility: hidden;
     display: block;
     width: 100%;
     border: none;
-    height: calc((var(--tg-viewport-stable-height) - 150px) / 5);
     padding: 14px 28px;
     font-size: 24px;
     text-align: center;
-    margin-top: 10px;
     background-color: var(--tg-theme-button-color);
-    background-color: "red";
     color: var(--tg-theme-button-text-color);
 }
 
@@ -21,6 +19,7 @@ table,
 tr,
 td {
     border: 5px var(--tg-theme-button-color);
+    /* border: 5px grey; */
 }
 
 table {
