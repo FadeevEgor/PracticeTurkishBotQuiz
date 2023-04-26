@@ -11,7 +11,7 @@ function startScreen() {
 
 function finalScreen() {
     telegram.MainButton.hide();
-    // clearAllGameElements();
+    clearAllGameElements();
     // _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
     //     [entry, isCorrect] = x;
     //     [left, right] = entry;
