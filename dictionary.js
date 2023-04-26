@@ -1,12 +1,17 @@
-dictionary = [
-    ["elma", "apple"],
-    ["ben", "i"],
-    ["biz", "we"],
-    ["sen", "you"],
-    ["siz", "вы"]
-];
-dictionary = _.shuffle(dictionary);
-let N_rounds = dictionary.length;
+db_url = "https://dictionariestablefunction-d2ooxt72na-lm.a.run.app/get";
+
+async function load_dictionary(index) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    payload = {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({ "index": index }),
+    };
+    const response = await fetch(db_url, payload);
+    dictionary = await response.json();
+    return _.shuffle(dictionary);
+}
 
 
 function sampleOptions(dictionary, question, correctAnswer) {

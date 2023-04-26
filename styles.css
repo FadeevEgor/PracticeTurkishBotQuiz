@@ -17,3 +17,12 @@ button {
     background-color: "red";
     color: var(--tg-theme-button-text-color);
 }
+
+table {
+    visibility: false;
+    text-align: center;
+    font-size: 24px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
