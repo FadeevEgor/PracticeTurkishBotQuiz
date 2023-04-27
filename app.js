@@ -17,7 +17,7 @@ buttons.forEach(button => {
     };
 });
 
-index2 = 1; // debug
+// index2 = 1; // debug
 load_dictionary(index2).
     then(dictionary => {
         console.log(dictionary);

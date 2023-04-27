@@ -1,6 +1,6 @@
 var results_table = document.getElementById("results_table");
 var results_table_body = results_table.getElementsByTagName("tbody")[0];
-var canvas_div = document.getElementById("canvas_div");
+// var canvas_div = document.getElementById("canvas_div");
 var question_div = document.getElementById("question");
 var counter_div = document.getElementById("counter");
 var button_A = document.getElementById("button_A");
