@@ -124,6 +124,7 @@ function showTable() {
 
 function drawResultsDiagram(nCorrect, nIncorrect) {
     div = document.createElement("div");
+    div.style.width = "80%";
     canvas = document.createElement("canvas");
     div.appendChild(canvas);
     document.body.insertBefore(div, results_table);

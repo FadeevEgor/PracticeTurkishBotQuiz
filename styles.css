@@ -35,8 +35,8 @@ td {
 }
 
 table {
-    display: block;
-    /* position: fixed; */
+    /* display: block; */
+    position: fixed;
     top: 50px;
     visibility: hidden;
     text-align: center;
