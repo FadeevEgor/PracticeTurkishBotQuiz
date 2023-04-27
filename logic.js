@@ -40,6 +40,7 @@ function onAnswerButtonClick(buttonClicked) {
     }
     setMainButtonText("Next.");
     enableMainButton();
+    colorMainButton(enabledColor);
 }
 
 function playRound() {
@@ -55,7 +56,7 @@ function displayQuestion(question, options) {
     clearTable();
     showQuestion();
     buttons.forEach(button => button.disabled = false);
-    buttons.forEach(button => colorAnswerButton(button, neutralColor));
+    buttons.forEach(button => colorAnswerButton(button, enabledColor));
     question_div.innerText = question;
     for (let i = 0; i < 4; i++) {
         buttons[i].innerText = options[i];
@@ -63,6 +64,7 @@ function displayQuestion(question, options) {
     }
     showAnswerButtons();
     disableMainButton();
+    colorMainButton(disabledColor);
 }
 
 

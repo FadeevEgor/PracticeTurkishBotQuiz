@@ -18,14 +18,6 @@ function endProgressBar(newValue, total) {
     progressBar.end();
 }
 
-function hideAnswerButtons() {
-    buttons.forEach(button => button.style.visibility = "hidden");
-}
-
-function showAnswerButtons() {
-    buttons.forEach(button => button.style.visibility = "visible");
-}
-
 function hideQuestion() {
     question_div.style.visibility = "hidden";
 }
@@ -42,6 +34,15 @@ function hideMainButton() {
 function showMainButton() {
     telegram.MainButton.show();
     // debug_button.style.visibility = "visible"; // debug
+}
+
+function setMainButtonText(text) {
+    telegram.MainButton.text = text;
+    // debug_button.innerText = text; // debug
+}
+
+function colorMainButton(color) {
+    telegram.MainButton.color = color;
 }
 
 function hideProgressMainButton() {
@@ -64,10 +65,12 @@ function colorAnswerButton(button, color) {
     button.style.backgroundColor = color;
 }
 
+function hideAnswerButtons() {
+    buttons.forEach(button => button.style.visibility = "hidden");
+}
 
-function setMainButtonText(text) {
-    telegram.MainButton.text = text;
-    // debug_button.innerText = text; // debug
+function showAnswerButtons() {
+    buttons.forEach(button => button.style.visibility = "visible");
 }
 
 function clearAllGameElements() {
