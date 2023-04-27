@@ -123,7 +123,7 @@ function showTable() {
 }
 
 function drawResultsDiagram(nCorrect, nIncorrect) {
-    div.style.width = "80%";
+    canvas_div.style.width = "80%";
     canvas = document.createElement("canvas");
     canvas_div.appendChild(canvas);
 
