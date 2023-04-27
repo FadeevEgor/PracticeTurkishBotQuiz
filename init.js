@@ -12,7 +12,7 @@ var incorrectColor = new Color("#FF3333");
 
 theme = telegram.themeParams;
 var neutralColor = new Color(theme.button_color);
-var backgroundColor = new Color(theme.backgroundColor);
+var backgroundColor = new Color(theme.bg_color);
 // var neutralColor = new Color("grey"); // debug
 // var backgroundColor = new Color("white"); // debug
 var disabledColor = neutralColor.mix(backgroundColor, .5);
