@@ -36,15 +36,15 @@ td {
 }
 
 table {
-    display: block;
+    /* display: block; */
     position: absolute;
     top: 10px;
     visibility: hidden;
     text-align: center;
     font-size: 24px;
-    width: 100%;
-    /* margin-left: 2%; */
-    /* margin-right: 2%; */
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 td {
