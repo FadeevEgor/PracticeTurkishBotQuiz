@@ -9,8 +9,8 @@ var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
 // debug_button = document.getElementById("button_debug");
 
-function updateProgressBar(newValue, total) {
-    percent = newValue / total * 100;
+function updateProgressBar(i, N) {
+    percent = i / N * 100;
     progressBar.set(percent);
 }
 

@@ -44,7 +44,7 @@ function onAnswerButtonClick(buttonClicked) {
 }
 
 function playRound() {
-    updateProgressBar(gameState.currentRoundNumber, gameState.nRounds);
+    updateProgressBar(gameState.currentRoundNumber - 1, gameState.nRounds);
 
     [question, correctAnswer] = gameState.questionAnswer;
     options = sampleOptions(dictionary, question, correctAnswer);
