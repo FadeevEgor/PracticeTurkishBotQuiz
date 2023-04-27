@@ -11,12 +11,14 @@ function startScreen() {
 function finalScreen() {
     hideMainButton();
     clearAllGameElements();
+    console.log("here");
     _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
         [entry, isCorrect] = x;
         [left, right] = entry;
         addTableRow(left, right, isCorrect);
     });
     showTable();
+    endProgressBar();
 }
 
 function onAnswerButtonClick(buttonClicked) {
@@ -41,7 +43,7 @@ function onAnswerButtonClick(buttonClicked) {
 }
 
 function playRound() {
-    setCounter(gameState.currentRoundNumber, gameState.nRounds);
+    updateProgressBar(gameState.currentRoundNumber, gameState.nRounds);
 
     [question, correctAnswer] = gameState.questionAnswer;
     options = sampleOptions(dictionary, question, correctAnswer);

@@ -7,7 +7,16 @@ var button_B = document.getElementById("button_B");
 var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
+// debug_button = document.getElementById("button_debug");
 
+function updateProgressBar(newValue, total) {
+    percent = newValue / total * 100;
+    progressBar.set(percent);
+}
+
+function endProgressBar(newValue, total) {
+    progressBar.end();
+}
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
@@ -27,10 +36,12 @@ function showQuestion() {
 
 function hideMainButton() {
     telegram.MainButton.hide();
+    // debug_button.style.visibility = "hidden"; // debug
 }
 
 function showMainButton() {
     telegram.MainButton.show();
+    // debug_button.style.visibility = "visible"; // debug
 }
 
 function hideProgressMainButton() {
@@ -53,12 +64,10 @@ function colorAnswerButton(button, color) {
     button.style.backgroundColor = color;
 }
 
-function setCounter(counter, total) {
-    counter_div.innerText = `${counter}/${total}`;
-}
 
 function setMainButtonText(text) {
     telegram.MainButton.text = text;
+    // debug_button.innerText = text; // debug
 }
 
 function clearAllGameElements() {
@@ -66,13 +75,12 @@ function clearAllGameElements() {
     hideQuestion();
     buttons.forEach(button => button.remove());
     question_div.remove();
-    counter_div.remove();
 }
 
 function addTableRow(left, right, isCorrect) {
     var row = results_table_body.insertRow();
     if (isCorrect !== undefined) {
-        color = isCorrect ? correct : incorrect;
+        color = isCorrect ? correctColor : incorrectColor;
         row.style.backgroundColor = color;
     }
 
