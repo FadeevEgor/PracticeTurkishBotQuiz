@@ -1,5 +1,6 @@
 var results_table = document.getElementById("results_table");
 var results_table_body = results_table.getElementsByTagName("tbody")[0];
+const results_diagram_canvas = document.getElementById('results_diagram_canvas');
 var question_div = document.getElementById("question");
 var counter_div = document.getElementById("counter");
 var button_A = document.getElementById("button_A");
@@ -42,7 +43,8 @@ function setMainButtonText(text) {
 }
 
 function colorMainButton(color) {
-    telegram.MainButton.setParams({ "color": color });
+    s = color.to("srgb").toString({ format: "hex" });
+    telegram.MainButton.color = s;
 }
 
 function hideProgressMainButton() {
@@ -95,12 +97,12 @@ function addTableRow(left, right, isCorrect) {
     }
 
     var leftCell = row.insertCell();
-    var leftText = document.createTextNode(left);
+    var leftText = document.createTextNode(" " + left);
     leftCell.style.textAlign = "left";
     leftCell.appendChild(leftText);
 
     var rightCell = row.insertCell();
-    var rightText = document.createTextNode(right);
+    var rightText = document.createTextNode(right + " ");
     rightCell.style.textAlign = "right";
     rightCell.appendChild(rightText);
 
@@ -119,3 +121,27 @@ function hideTable() {
 function showTable() {
     results_table.style.visibility = "visible";
 }
+
+function drawResultsDiagram(nCorrect, nIncorrect) {
+    div = document.createElement("div");
+    canvas = document.createElement("canvas");
+    div.appendChild(canvas);
+    document.body.insertBefore(div, results_table);
+
+    new Chart(canvas, {
+        type: "doughnut",
+        data: {
+            labels: ["Correct", "Incorrect"],
+            datasets: [{
+                label: "Results",
+                data: [nCorrect, nIncorrect],
+                backgroundColor: [
+                    correctColor,
+                    incorrectColor,
+                ]
+            }]
+        }
+    })
+
+}
+

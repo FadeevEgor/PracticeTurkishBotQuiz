@@ -12,6 +12,10 @@ function finalScreen() {
     hideMainButton();
     clearAllGameElements();
     console.log("here");
+    nCorrect = [true, true, true].reduce((a, b) => a + b, 0);
+    nIncorrect = gameState.nRounds - nCorrect;
+    drawResultsDiagram(nCorrect, nIncorrect);
+
     _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
         [entry, isCorrect] = x;
         [left, right] = entry;
