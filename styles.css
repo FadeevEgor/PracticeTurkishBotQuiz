@@ -29,6 +29,7 @@ button {
 table,
 tr,
 td {
+    word-break: break-word;
     border: 5px solid var(--tg-theme-button-color);
     border-collapse: collapse;
     /* border: 5px solid grey; */
@@ -36,7 +37,7 @@ td {
 
 table {
     /* display: block; */
-    position: fixed;
+    position: absolute;
     top: 50px;
     visibility: hidden;
     text-align: center;
