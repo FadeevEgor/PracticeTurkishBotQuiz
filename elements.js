@@ -7,10 +7,7 @@ var button_B = document.getElementById("button_B");
 var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
 var buttons = [button_A, button_B, button_C, button_D];
-// for (const i of _.range(4)) {
-//     buttons[i].style.bottom = i * buttonTotalHeight;
-// }
-// var debug_button = document.getElementById("button_debug"); // debug
+
 
 function hideAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "hidden");
@@ -18,10 +15,6 @@ function hideAnswerButtons() {
 
 function showAnswerButtons() {
     buttons.forEach(button => button.style.visibility = "visible");
-    // buttons.forEach(button => {
-    //     button.style.height = buttonHeight;
-    //     button.style.marginTop = buttonUpperMargin;
-    // });
 }
 
 function hideQuestion() {
@@ -66,8 +59,6 @@ function setCounter(counter, total) {
 
 function setMainButtonText(text) {
     telegram.MainButton.text = text;
-    // debug_button.innerText = text; // debug
-    console.log(text);
 }
 
 function clearAllGameElements() {
