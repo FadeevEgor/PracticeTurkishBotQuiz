@@ -17,21 +17,18 @@ function finalScreen() {
         addTableRow(left, right, isCorrect);
     });
     showTable();
-
-
-    // setMainButtonText("Finish.");
-    // telegram.MainButton.onClick(function () { telegram.close() });
-    // enableMainButton();
-    // debug_button.onclick = finish; // debug
 }
 
 function onAnswerButtonClick(buttonClicked) {
-    buttons.forEach(button => button.disabled = true);
     buttons.forEach(button => {
+        button.disabled = true;
         if (gameState.checkAnswer(button.innerText)) {
             colorButtonCorrect(button);
+        } else {
+            colorButtonDisabled(button);
         }
     });
+
     let pickedAnswer = buttonClicked.innerText;
     if (!gameState.checkAnswer(pickedAnswer)) {
         colorButtonIncorrect(buttonClicked);

@@ -57,15 +57,20 @@ function enableMainButton() {
 }
 
 function colorButtonCorrect(button) {
-    button.style.backgroundColor = correct;
+    button.style.backgroundColor = correct_color;
 }
 
 function colorButtonIncorrect(button) {
-    button.style.backgroundColor = incorrect;
+    button.style.backgroundColor = incorrect_color;
 }
 
 function colorButtonNeutral(button) {
-    button.style.backgroundColor = neutral;
+    button.style.backgroundColor = neutral_color;
+    // button.style.backgroundColor = "grey"; // debug
+}
+
+function colorButtonDisabled(button) {
+    button.style.backgroundColor = disabled_color;
     // button.style.backgroundColor = "grey"; // debug
 }
 

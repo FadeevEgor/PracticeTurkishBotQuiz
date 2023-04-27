@@ -1,9 +1,10 @@
 var telegram = window.Telegram.WebApp;
 theme = telegram.themeParams;
 
-correct = "#00CC99";
-incorrect = "#FF3333";
-neutral = theme.button_color;
+correct_color = "#00CC99";
+incorrect_color = "#FF3333";
+disabled_color = "#CCCCCC";
+neutral_color = theme.button_color;
 
 telegram.expand();
 // fullScreenHeight = telegram.viewportHeight;
