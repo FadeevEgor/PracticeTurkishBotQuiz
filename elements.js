@@ -123,24 +123,33 @@ function showTable() {
 }
 
 function drawResultsDiagram(nCorrect, nIncorrect) {
-    canvas_div.style.width = "80%";
-    canvas = document.createElement("canvas");
-    canvas_div.appendChild(canvas);
+    TESTER = document.getElementById('tester');
+    var data = [{
+        values: [nCorrect, nIncorrect],
+        labels: ['Correct', 'Mistakes'],
+        marker: {
+            colors: [correctColor, incorrectColor],
+        },
+        name: 'Results.',
+        hoverinfo: 'label+percent+name',
+        hole: .4,
+        type: 'pie'
+    }];
 
-    new Chart(canvas, {
-        type: "doughnut",
-        data: {
-            labels: ["Correct", "Incorrect"],
-            datasets: [{
-                label: "Results",
-                data: [nCorrect, nIncorrect],
-                backgroundColor: [
-                    correctColor,
-                    incorrectColor,
-                ]
-            }]
-        }
-    })
-
+    var layout = {
+        annotations: [
+            {
+                font: {
+                    size: 20
+                },
+                showarrow: false,
+                text: 'Results',
+                x: 0.17,
+                y: 0.5
+            }
+        ],
+        showlegend: false,
+    };
+    Plotly.newPlot('myDiv', data, layout);
 }
 
