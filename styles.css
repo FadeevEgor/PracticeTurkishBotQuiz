@@ -30,7 +30,7 @@ table,
 tr,
 td {
     word-break: break-word;
-    border: 5px solid var(--tg-theme-button-color);
+    border: 3px solid var(--tg-theme-button-color);
     border-collapse: collapse;
     /* border: 5px solid grey; */
 }
@@ -38,13 +38,13 @@ td {
 table {
     /* display: block; */
     position: absolute;
-    top: 50px;
+    top: 10px;
     visibility: hidden;
     text-align: center;
     font-size: 24px;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 
 td {
