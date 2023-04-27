@@ -1,6 +1,6 @@
 var results_table = document.getElementById("results_table");
 var results_table_body = results_table.getElementsByTagName("tbody")[0];
-const results_diagram_canvas = document.getElementById('results_diagram_canvas');
+var canvas_div = document.getElementById("canvas_div");
 var question_div = document.getElementById("question");
 var counter_div = document.getElementById("counter");
 var button_A = document.getElementById("button_A");
@@ -123,11 +123,9 @@ function showTable() {
 }
 
 function drawResultsDiagram(nCorrect, nIncorrect) {
-    div = document.createElement("div");
     div.style.width = "80%";
     canvas = document.createElement("canvas");
-    div.appendChild(canvas);
-    document.body.insertBefore(div, results_table);
+    canvas_div.appendChild(canvas);
 
     new Chart(canvas, {
         type: "doughnut",
