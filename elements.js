@@ -42,7 +42,7 @@ function setMainButtonText(text) {
 }
 
 function colorMainButton(color) {
-    telegram.MainButton.color = color;
+    telegram.MainButton.setParams({ "color": color });
 }
 
 function hideProgressMainButton() {
@@ -82,21 +82,28 @@ function clearAllGameElements() {
 
 function addTableRow(left, right, isCorrect) {
     var row = results_table_body.insertRow();
+
     if (isCorrect !== undefined) {
         color = isCorrect ? correctColor : incorrectColor;
-        row.style.backgroundColor = color;
+        symbol = isCorrect ? "✔" : "✘";
+        var correctnessCell = row.insertCell();
+        var correctnessText = document.createTextNode(symbol);
+        correctnessCell.style.width = "30px";
+        correctnessCell.style.color = color;
+        // correctnessCell.style.fontSize = "24px";
+        correctnessCell.appendChild(correctnessText);
     }
 
     var leftCell = row.insertCell();
-    var rightCell = row.insertCell();
-    leftCell.style.textAlign = "left";
-    rightCell.style.textAlign = "right";
-
-
     var leftText = document.createTextNode(left);
-    var rightText = document.createTextNode(right);
+    leftCell.style.textAlign = "left";
     leftCell.appendChild(leftText);
+
+    var rightCell = row.insertCell();
+    var rightText = document.createTextNode(right);
+    rightCell.style.textAlign = "right";
     rightCell.appendChild(rightText);
+
 }
 
 function clearTable() {
