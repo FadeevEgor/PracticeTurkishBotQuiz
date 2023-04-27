@@ -18,7 +18,7 @@ function finalScreen() {
     });
     showTable();
     setMainButtonText("Finish.");
-    // telegram.MainButton.onClick(finish);
+    telegram.MainButton.onClick(function () { telegram.close() });
     // enableMainButton();
     // debug_button.onclick = finish; // debug
 }
@@ -73,8 +73,4 @@ function onMainButtonClick() {
     } else {
         playRound();
     }
-}
-
-function finish() {
-    telegram.close();
 }
