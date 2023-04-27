@@ -4,7 +4,7 @@ body {
 }
 
 #buttons {
-    bottom: 0;
+    bottom: 50px;
     width: 100%;
     position: sticky;
     height: calc(var(--tg-viewport-stable-height) - 150px);
