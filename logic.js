@@ -9,7 +9,7 @@ function startScreen() {
 }
 
 function finalScreen() {
-    disableMainButton();
+    hideMainButton();
     clearAllGameElements();
     _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
         [entry, isCorrect] = x;
@@ -17,8 +17,10 @@ function finalScreen() {
         addTableRow(left, right, isCorrect);
     });
     showTable();
-    setMainButtonText("Finish.");
-    telegram.MainButton.onClick(function () { telegram.close() });
+
+
+    // setMainButtonText("Finish.");
+    // telegram.MainButton.onClick(function () { telegram.close() });
     // enableMainButton();
     // debug_button.onclick = finish; // debug
 }
