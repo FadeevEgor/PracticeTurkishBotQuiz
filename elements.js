@@ -56,22 +56,8 @@ function enableMainButton() {
     telegram.MainButton.enable();
 }
 
-function colorButtonCorrect(button) {
-    button.style.backgroundColor = correct_color;
-}
-
-function colorButtonIncorrect(button) {
-    button.style.backgroundColor = incorrect_color;
-}
-
-function colorButtonNeutral(button) {
-    button.style.backgroundColor = neutral_color;
-    // button.style.backgroundColor = "grey"; // debug
-}
-
-function colorButtonDisabled(button) {
-    button.style.backgroundColor = disabled_color;
-    // button.style.backgroundColor = "grey"; // debug
+function colorAnswerButton(button, color) {
+    button.style.backgroundColor = color;
 }
 
 function setCounter(counter, total) {

@@ -23,15 +23,15 @@ function onAnswerButtonClick(buttonClicked) {
     buttons.forEach(button => {
         button.disabled = true;
         if (gameState.checkAnswer(button.innerText)) {
-            colorButtonCorrect(button);
+            colorAnswerButton(button, correctColor);
         } else {
-            colorButtonDisabled(button);
+            colorAnswerButton(button, disabledColor);
         }
     });
 
     let pickedAnswer = buttonClicked.innerText;
     if (!gameState.checkAnswer(pickedAnswer)) {
-        colorButtonIncorrect(buttonClicked);
+        colorAnswerButton(buttonClicked, incorrectColor);
         gameState.incorrectAnswer();
     } else {
         gameState.correctAnswer();
@@ -53,7 +53,7 @@ function displayQuestion(question, options) {
     clearTable();
     showQuestion();
     buttons.forEach(button => button.disabled = false);
-    buttons.forEach(button => colorButtonNeutral(button));
+    buttons.forEach(button => colorAnswerButton(button, neutralColor));
     question_div.innerText = question;
     for (let i = 0; i < 4; i++) {
         buttons[i].innerText = options[i];
