@@ -9,7 +9,7 @@ if (PRODUCTION) {
 var progressBar = progressJs();
 progressBar.setOption("theme", "blue");
 progressBar.start();
-progressBar.set(50);
+progressBar.set(0);
 
 var correctColor = new Color("#00CC99");
 var incorrectColor = new Color("#FF3333");
