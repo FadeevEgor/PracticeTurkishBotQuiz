@@ -29,8 +29,7 @@ table,
 tr,
 td {
     word-break: break-word;
-    /* border: 3px solid var(--tg-theme-button-color); */
-    border: 3px solid "grey";
+    border: 3px solid var(--tg-theme-button-color);
     border-collapse: collapse;
 }
 

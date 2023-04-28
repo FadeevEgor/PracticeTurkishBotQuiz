@@ -6,6 +6,7 @@ function startScreen() {
     showTable(table_preview);
 
     setMainButtonAction(actionStartGame);
+    hideProgressMainButton();
     enableMainButton();
     colorMainButton(enabledColor);
 }
@@ -24,7 +25,7 @@ function actionStartGame() {
     hidePage(page_preview);
     showPage(page_game);
 
-    gameState.nextRound();
+    actionContinue();
     playRound();
 }
 
