@@ -155,8 +155,8 @@ function showStats(correctness) {
     total = correctness.length;
     nCorrect = correctness.reduce((a, b) => a + b, 0);
     nIncorrect = total - nCorrect;
-    percentCorrect = nCorrect / total * 100;
-    percentIncorrect = nIncorrect / total * 100;
+    percentCorrect = Math.round(nCorrect / total * 100);
+    percentIncorrect = 100 - percentCorrect;
 
     nSymbols = total.toString().length;
     nCorrect_str = nCorrect.toString().padStart(nSymbols, " ");
@@ -165,7 +165,9 @@ function showStats(correctness) {
     stats_correct_div.innerText = `${percentCorrect}% [${nCorrect_str}/${total}]`
     stats_correct_div.style.color = correctTextColor;
     stats_correct_div.style.fontWeight = "bold";
+    stats_correct_div.style.fontFamily = "monospace";
     stats_mistakes_div.innerText = `${percentIncorrect}% [${nIncorrect_str}/${total}]`
     stats_mistakes_div.style.color = incorrectTextColor;
     stats_mistakes_div.style.fontWeight = "bold";
+    stats_mistakes_div.style.fontFamily = "monospace";
 }
