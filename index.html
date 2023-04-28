@@ -16,20 +16,25 @@
 </head>
 
 <body>
-    <!-- <div id="tester" style="width: 100%;display: block;"></div> -->
-    <table id="results_table">
-        <tbody></tbody>
-    </table>
-    <div id="question" class="question"></div>
-    <div id="buttons" class="buttons">
-        <button id="button_A" type="button">A</button>
-        <button id="button_B" type="button">B</button>
-        <button id="button_C" type="button">C</button>
-        <button id="button_D" type="button">D</button>
+    <div id="page_preview" style="display: block;">
+        <table id="table_preview">
+            <tbody></tbody>
+        </table>
     </div>
-    <!-- debug -->
-    <!-- <button id="button_debug" type="button">Next.</button> -->
-    <!-- debug -->
+    <div id="page_game" style="display: none;">
+        <div id="question" class="question"></div>
+        <div id="buttons" class="buttons">
+            <button id="button_A" type="button"></button>
+            <button id="button_B" type="button"></button>
+            <button id="button_C" type="button"></button>
+            <button id="button_D" type="button"></button>
+        </div>
+    </div>
+    <div id="page_results" style="display: none;">
+        <table id="table_results">
+            <tbody></tbody>
+        </table>
+    </div>
 
     <script src="init.js"></script>
     <script src="elements.js"></script>

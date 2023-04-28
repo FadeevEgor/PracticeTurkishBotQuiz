@@ -1,32 +1,81 @@
 function startScreen() {
-    hideAnswerButtons();
-    hideQuestion();
     gameState.dictionary.forEach(entry => {
         [left, right] = entry;
-        addTableRow(left, right);
+        addTableRow(table_preview, left, right);
     });
-    showTable();
+    showTable(table_preview);
+
+    setMainButtonAction(actionStartGame);
+    enableMainButton();
+    colorMainButton(enabledColor);
+}
+
+function actionStartGame() {
+    disableMainButton();
+    setMainButtonText("Next.");
+    setMainButtonAction(actionContinue);
+
+    answerButtons.forEach(button => {
+        button.onclick = function () {
+            answerPicked(button);
+        };
+    });
+
+    hidePage(page_preview);
+    showPage(page_game);
+
+    gameState.nextRound();
+    playRound();
+}
+
+function actionContinue() {
+    gameState.nextRound();
+    if (gameState.isFinish()) {
+        finalScreen();
+    } else {
+        playRound();
+    }
+}
+
+function playRound() {
+    updateProgressBar(gameState.currentRoundNumber - 1, gameState.nRounds);
+
+    [question, correctAnswer] = gameState.questionAnswer;
+    options = sampleOptions(dictionary, question, correctAnswer);
+    displayQuestion(question, options);
+}
+
+function displayQuestion(question, options) {
+    showQuestion(question);
+    for (let i = 0; i < 4; i++) {
+        answerButtons[i].innerText = options[i];
+        answerButtons[i].style.textAlign = "center";
+    }
+    answerButtons.forEach(button => button.disabled = false);
+    answerButtons.forEach(button => colorAnswerButton(button, enabledColor));
+    disableMainButton();
+    colorMainButton(disabledColor);
 }
 
 function finalScreen() {
     hideMainButton();
-    clearAllGameElements();
-    console.log("here");
-    nCorrect = [true, true, true].reduce((a, b) => a + b, 0);
-    nIncorrect = gameState.nRounds - nCorrect;
+    endProgressBar();
+    hidePage(page_game);
+    showPage(page_results);
+    // nCorrect = [true, true, true].reduce((a, b) => a + b, 0);
+    // nIncorrect = gameState.nRounds - nCorrect;
     // drawResultsDiagram(nCorrect, nIncorrect);
 
     _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
         [entry, isCorrect] = x;
         [left, right] = entry;
-        addTableRow(left, right, isCorrect);
+        addTableRow(table_results, left, right, isCorrect);
     });
-    showTable();
-    endProgressBar();
+    showTable(table_results);
 }
 
-function onAnswerButtonClick(buttonClicked) {
-    buttons.forEach(button => {
+function answerPicked(buttonClicked) {
+    answerButtons.forEach(button => {
         button.disabled = true;
         if (gameState.checkAnswer(button.innerText)) {
             colorAnswerButton(button, correctColor);
@@ -42,42 +91,14 @@ function onAnswerButtonClick(buttonClicked) {
     } else {
         gameState.correctAnswer();
     }
-    setMainButtonText("Next.");
     enableMainButton();
     colorMainButton(enabledColor);
 }
 
-function playRound() {
-    updateProgressBar(gameState.currentRoundNumber - 1, gameState.nRounds);
-
-    [question, correctAnswer] = gameState.questionAnswer;
-    options = sampleOptions(dictionary, question, correctAnswer);
-    displayQuestion(question, options);
-}
-
-function displayQuestion(question, options) {
-    hideTable();
-    clearTable();
-    showQuestion();
-    buttons.forEach(button => button.disabled = false);
-    buttons.forEach(button => colorAnswerButton(button, enabledColor));
-    question_div.innerText = question;
-    for (let i = 0; i < 4; i++) {
-        buttons[i].innerText = options[i];
-        buttons[i].style.textAlign = "center";
-    }
-    showAnswerButtons();
-    disableMainButton();
-    colorMainButton(disabledColor);
-}
 
 
-function onMainButtonClick() {
-    setMainButtonText("Next.");
-    gameState.nextRound();
-    if (gameState.isFinish()) {
-        finalScreen();
-    } else {
-        playRound();
-    }
-}
+
+
+
+
+

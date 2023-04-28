@@ -1,24 +1,22 @@
-var url = new URL(window.location.href);
-// var index = url.searchParams.get("start_param");
-var index1 = parseInt(url.searchParams.get("tgWebAppStartParam"));
-var index2 = parseInt(telegram.initDataUnsafe.start_param);
-// counter_div.innerText = index2;
+if (PRODUCTION) {
+    var url = new URL(window.location.href);
+    var index1 = parseInt(url.searchParams.get("tgWebAppStartParam"));
+    var index2 = parseInt(telegram.initDataUnsafe.start_param);
+    var index = index2;
+}
+else {
+    var index = 1;
+}
 
 
 gameState = new GameState();
-telegram.MainButton.onClick(onMainButtonClick);
-// debug_button.onclick = onMainButtonClick; // debug
 setMainButtonText("Start.");
 showMainButton();
 showProgressMainButton();
-buttons.forEach(button => {
-    button.onclick = function () {
-        onAnswerButtonClick(button, gameState);
-    };
-});
 
-// index2 = 1; // debug
-load_dictionary(index2).
+
+
+load_dictionary(index).
     then(dictionary => {
         console.log(dictionary);
         gameState.setDictionary(dictionary);

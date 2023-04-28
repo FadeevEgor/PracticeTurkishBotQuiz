@@ -1,14 +1,37 @@
-var results_table = document.getElementById("results_table");
-var results_table_body = results_table.getElementsByTagName("tbody")[0];
-// var canvas_div = document.getElementById("canvas_div");
+var mainButton = telegram.MainButton;
+
+var page_preview = document.getElementById("page_preview");
+var table_preview = document.getElementById("table_preview");
+var tbody_preview = table_preview.getElementsByTagName("tbody")[0];
+
+var page_game = document.getElementById("page_game");
 var question_div = document.getElementById("question");
-var counter_div = document.getElementById("counter");
+var buttons_div = document.getElementById("buttons_div");
 var button_A = document.getElementById("button_A");
 var button_B = document.getElementById("button_B");
 var button_C = document.getElementById("button_C");
 var button_D = document.getElementById("button_D");
-var buttons = [button_A, button_B, button_C, button_D];
-// debug_button = document.getElementById("button_debug");
+var answerButtons = [button_A, button_B, button_C, button_D];
+
+var page_results = document.getElementById("page_results");
+var table_results = document.getElementById("table_results");
+var tbody_results = table_results.getElementsByTagName("tbody")[0];
+
+if (DEBUG) {
+    var button_debug = document.createElement("button");
+    page_preview.appendChild(button_debug);
+}
+
+
+
+function hidePage(page) {
+    page.style.display = "none";
+}
+
+function showPage(page) {
+    page.style.display = "block";
+    if (DEBUG) { page.appendChild(button_debug); }
+}
 
 function updateProgressBar(i, N) {
     percent = i / N * 100;
@@ -23,67 +46,77 @@ function hideQuestion() {
     question_div.style.visibility = "hidden";
 }
 
-function showQuestion() {
+function showQuestion(question) {
+    question_div.innerText = question;
     question_div.style.visibility = "visible";
 }
 
 function hideMainButton() {
-    telegram.MainButton.hide();
-    // debug_button.style.visibility = "hidden"; // debug
+    mainButton.hide();
+    if (DEBUG) { button_debug.style.visibility = "hidden"; }
 }
 
 function showMainButton() {
-    telegram.MainButton.show();
-    // debug_button.style.visibility = "visible"; // debug
+    mainButton.show();
+    if (DEBUG) { button_debug.style.visibility = "visible"; }
 }
 
 function setMainButtonText(text) {
-    telegram.MainButton.text = text;
-    // debug_button.innerText = text; // debug
+    mainButton.text = text;
+    if (DEBUG) { button_debug.innerText = text; }
 }
 
 function colorMainButton(color) {
-    s = color.to("srgb").toString({ format: "hex" });
-    telegram.MainButton.color = s;
+    colorCode = color.to("srgb").toString({ format: "hex" });
+    mainButton.color = colorCode;
+    if (DEBUG) { button_debug.style.backgroundColor = colorCode; }
 }
 
 function hideProgressMainButton() {
-    telegram.MainButton.hideProgress();
+    mainButton.hideProgress();
 }
 
 function showProgressMainButton() {
-    telegram.MainButton.showProgress();
+    mainButton.showProgress();
 }
 
 function disableMainButton() {
-    telegram.MainButton.disable();
+    mainButton.disable();
+    if (DEBUG) { button_debug.disabled = true; }
 }
 
 function enableMainButton() {
-    telegram.MainButton.enable();
+    mainButton.enable();
+    if (DEBUG) { button_debug.disabled = false; }
 }
+
+function setMainButtonAction(action) {
+    mainButton.onClick(action);
+    if (DEBUG) { button_debug.onclick = action; }
+}
+
 
 function colorAnswerButton(button, color) {
     button.style.backgroundColor = color;
 }
 
 function hideAnswerButtons() {
-    buttons.forEach(button => button.style.visibility = "hidden");
+    answerButtons.forEach(button => button.style.visibility = "hidden");
 }
 
 function showAnswerButtons() {
-    buttons.forEach(button => button.style.visibility = "visible");
+    answerButtons.forEach(button => button.style.visibility = "visible");
 }
 
 function clearAllGameElements() {
     hideAnswerButtons();
     hideQuestion();
-    buttons.forEach(button => button.remove());
+    answerButtons.forEach(button => button.remove());
     question_div.remove();
 }
 
-function addTableRow(left, right, isCorrect) {
-    var row = results_table_body.insertRow();
+function addTableRow(table, left, right, isCorrect) {
+    var row = table.insertRow();
 
     if (isCorrect !== undefined) {
         color = isCorrect ? correctColor : incorrectColor;
@@ -108,18 +141,14 @@ function addTableRow(left, right, isCorrect) {
 
 }
 
-function clearTable() {
-    var new_tbody = document.createElement('tbody');
-    results_table_body.parentNode.replaceChild(new_tbody, results_table_body);
-    results_table_body = new_tbody;
+
+
+function hideTable(table) {
+    table.style.visibility = "hidden";
 }
 
-function hideTable() {
-    results_table.style.visibility = "hidden";
-}
-
-function showTable() {
-    results_table.style.visibility = "visible";
+function showTable(table) {
+    table.style.visibility = "visible";
 }
 
 function drawResultsDiagram(nCorrect, nIncorrect) {
