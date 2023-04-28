@@ -17,8 +17,10 @@ if (PRODUCTION) {
     theme = telegram.themeParams;
     var enabledColor = new Color(theme.button_color);
     var backgroundColor = new Color(theme.bg_color);
+    var secondaryBackgroundColor = new Color(theme.secondary_bg_color);
 } else {
     var enabledColor = new Color("#5288c1");
     var backgroundColor = new Color("white");
+    var secondaryBackgroundColor = new Color("grey");
 }
 var disabledColor = enabledColor.mix(backgroundColor, .5);

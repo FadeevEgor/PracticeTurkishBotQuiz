@@ -9,6 +9,7 @@ function startScreen() {
     hideProgressMainButton();
     enableMainButton();
     colorMainButton(enabledColor);
+    showPage(page_preview);
 }
 
 function actionNextRound() {
@@ -39,8 +40,6 @@ function startGame() {
     playRound();
 }
 
-
-
 function playRound() {
     updateProgressBar(gameState.currentRoundNumber - 1, gameState.nRounds);
 
@@ -66,9 +65,10 @@ function finalScreen() {
     endProgressBar();
     hidePage(page_game);
     showPage(page_results);
-    // nCorrect = [true, true, true].reduce((a, b) => a + b, 0);
-    // nIncorrect = gameState.nRounds - nCorrect;
-    // drawResultsDiagram(nCorrect, nIncorrect);
+    total = gameState.nRounds;
+    nCorrect = gameState.correctness.reduce((a, b) => a + b, 0);
+    nIncorrect = total - nCorrect;
+    stats_div.innerHTML = `${nCorrect}/${total}<br>${nIncorrect}/${total}`;
 
     _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
         [entry, isCorrect] = x;
@@ -89,11 +89,11 @@ function answerPicked(buttonClicked) {
     });
 
     let pickedAnswer = buttonClicked.innerText;
-    if (!gameState.checkAnswer(pickedAnswer)) {
+    if (gameState.checkAnswer(pickedAnswer)) {
+        gameState.correctAnswer();
+    } else {
         colorAnswerButton(buttonClicked, incorrectColor);
         gameState.incorrectAnswer();
-    } else {
-        gameState.correctAnswer();
     }
     enableMainButton();
     colorMainButton(enabledColor);

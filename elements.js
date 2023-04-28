@@ -14,15 +14,13 @@ var button_D = document.getElementById("button_D");
 var answerButtons = [button_A, button_B, button_C, button_D];
 
 var page_results = document.getElementById("page_results");
+var stats_div = document.getElementById("stats");
 var table_results = document.getElementById("table_results");
 var tbody_results = table_results.getElementsByTagName("tbody")[0];
 
 if (DEBUG) {
     var button_debug = document.createElement("button");
-    page_preview.appendChild(button_debug);
 }
-
-
 
 function hidePage(page) {
     page.style.display = "none";
@@ -150,35 +148,3 @@ function hideTable(table) {
 function showTable(table) {
     table.style.visibility = "visible";
 }
-
-function drawResultsDiagram(nCorrect, nIncorrect) {
-    TESTER = document.getElementById('tester');
-    var data = [{
-        values: [nCorrect, nIncorrect],
-        labels: ['Correct', 'Mistakes'],
-        marker: {
-            colors: [correctColor, incorrectColor],
-        },
-        name: 'Results.',
-        hoverinfo: 'label+percent+name',
-        hole: .4,
-        type: 'pie'
-    }];
-
-    var layout = {
-        annotations: [
-            {
-                font: {
-                    size: 20
-                },
-                showarrow: false,
-                text: 'Results',
-                x: 0.17,
-                y: 0.5
-            }
-        ],
-        showlegend: false,
-    };
-    Plotly.newPlot('myDiv', data, layout);
-}
-

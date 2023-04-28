@@ -16,7 +16,10 @@
 </head>
 
 <body>
-    <div id="page_preview" style="display: block;">
+    <div id="page_preview" style="display: none;">
+        <div id="control_panel" style="display: block;">
+
+        </div>
         <table id="table_preview">
             <tbody></tbody>
         </table>
@@ -31,7 +34,13 @@
         </div>
     </div>
     <div id="page_results" style="display: none;">
+        <div style="display: block; text-align: center; font-size: 28px;">Results</div>
+        <div id="header" class="header">
+            <div style="float: left;">Correct:<br>Incorrect</div>
+            <div id="stats" style="float: right;"></div>
+        </div>
         <table id="table_results">
+            <caption>Per question results</caption>
             <tbody></tbody>
         </table>
     </div>
