@@ -1,5 +1,7 @@
 var mainButton = telegram.MainButton;
 
+var page_loading = document.getElementById("page_loading");
+
 var page_preview = document.getElementById("page_preview");
 var table_preview = document.getElementById("table_preview");
 var tbody_preview = table_preview.getElementsByTagName("tbody")[0];
@@ -153,5 +155,7 @@ function showStats(correctness) {
     nIncorrect = total - nCorrect;
     percentCorrect = nCorrect / total * 100;
     percentIncorrect = nIncorrect / total * 100;
-    stats_div.innerHTML = `${percentCorrect}% (${nCorrect}/${total})<br>${percentIncorrect}% (${nIncorrect}/${total})`;
+    stats_div.innerHTML = `${percentCorrect}% [${nCorrect}/${total}]
+    <br>
+    ${percentIncorrect}% [${nIncorrect}/${total}]`;
 }

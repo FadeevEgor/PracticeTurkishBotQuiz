@@ -1,6 +1,6 @@
 body {
-    background-color: var(--tg-theme-bg-color);
-    color: var(--tg-theme-text-color);
+    background-color: var(--tg-theme-bg-color, white);
+    color: var(--tg-theme-text-color, black);
 }
 
 #buttons {
@@ -21,7 +21,7 @@ button {
     padding: 14px 28px;
     font-size: 24px;
     text-align: center;
-    background-color: var(--tg-theme-button-color);
+    background-color: var(--tg-theme-button-color, #5288c1);
     color: var(--tg-theme-button-text-color);
 }
 
@@ -29,7 +29,7 @@ table,
 tr,
 td {
     word-break: break-word;
-    border: 3px solid var(--tg-theme-button-color);
+    border: 3px solid var(--tg-theme-button-color, #5288c1);
     border-collapse: collapse;
 }
 

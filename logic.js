@@ -9,6 +9,7 @@ function startScreen() {
     hideProgressMainButton();
     enableMainButton();
     colorMainButton(enabledColor);
+    hidePage(page_loading);
     showPage(page_preview);
 }
 
