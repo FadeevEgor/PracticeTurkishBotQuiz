@@ -65,11 +65,7 @@ function finalScreen() {
     endProgressBar();
     hidePage(page_game);
     showPage(page_results);
-    total = gameState.nRounds;
-    nCorrect = gameState.correctness.reduce((a, b) => a + b, 0);
-    nIncorrect = total - nCorrect;
-    stats_div.innerHTML = `${nCorrect}/${total}<br>${nIncorrect}/${total}`;
-
+    showStats(gameState.correctness);
     _.zip(gameState.dictionary, gameState.correctness).forEach(x => {
         [entry, isCorrect] = x;
         [left, right] = entry;

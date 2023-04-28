@@ -139,12 +139,19 @@ function addTableRow(table, left, right, isCorrect) {
 
 }
 
-
-
 function hideTable(table) {
     table.style.visibility = "hidden";
 }
 
 function showTable(table) {
     table.style.visibility = "visible";
+}
+
+function showStats(correctness) {
+    total = correctness.length;
+    nCorrect = correctness.reduce((a, b) => a + b, 0);
+    nIncorrect = total - nCorrect;
+    percentCorrect = nCorrect / total * 100;
+    percentIncorrect = nIncorrect / total * 100;
+    stats_div.innerHTML = `${percentCorrect}% (${nCorrect}/${total})<br>${percentIncorrect}% (${nIncorrect}/${total})`;
 }
