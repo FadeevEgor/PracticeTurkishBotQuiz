@@ -52,11 +52,17 @@ function playRound() {
 function displayQuestion(question, options) {
     showQuestion(question);
     for (let i = 0; i < 4; i++) {
-        answerButtons[i].innerText = options[i];
-        answerButtons[i].style.textAlign = "center";
+        option = options[i];
+        button = answerButtons[3 - i];
+        if (option !== undefined) {
+            button.innerText = option;
+            button.disabled = false;
+            colorAnswerButton(button, enabledColor);
+        } else {
+            colorAnswerButton(button, disabledColor);
+            button.disabled = true;
+        }
     }
-    answerButtons.forEach(button => button.disabled = false);
-    answerButtons.forEach(button => colorAnswerButton(button, enabledColor));
     disableMainButton();
     colorMainButton(disabledColor);
 }
@@ -79,7 +85,7 @@ function answerPicked(buttonClicked) {
     answerButtons.forEach(button => {
         button.disabled = true;
         if (gameState.checkAnswer(button.innerText)) {
-            colorAnswerButton(button, correctColor);
+            colorAnswerButton(button, correctButtonColor);
         } else {
             colorAnswerButton(button, disabledColor);
         }
@@ -89,7 +95,7 @@ function answerPicked(buttonClicked) {
     if (gameState.checkAnswer(pickedAnswer)) {
         gameState.correctAnswer();
     } else {
-        colorAnswerButton(buttonClicked, incorrectColor);
+        colorAnswerButton(buttonClicked, incorrectButtonColor);
         gameState.incorrectAnswer();
     }
     enableMainButton();

@@ -16,7 +16,8 @@ var button_D = document.getElementById("button_D");
 var answerButtons = [button_A, button_B, button_C, button_D];
 
 var page_results = document.getElementById("page_results");
-var stats_div = document.getElementById("stats");
+var stats_correct_div = document.getElementById("stats_correct");
+var stats_mistakes_div = document.getElementById("stats_mistakes");
 var table_results = document.getElementById("table_results");
 var tbody_results = table_results.getElementsByTagName("tbody")[0];
 
@@ -119,24 +120,25 @@ function addTableRow(table, left, right, isCorrect) {
     var row = table.insertRow();
 
     if (isCorrect !== undefined) {
-        color = isCorrect ? correctColor : incorrectColor;
+        color = isCorrect ? correctTextColor : incorrectTextColor;
         symbol = isCorrect ? "✔" : "✘";
         var correctnessCell = row.insertCell();
         var correctnessText = document.createTextNode(symbol);
         correctnessCell.style.width = "30px";
         correctnessCell.style.color = color;
-        // correctnessCell.style.fontSize = "24px";
+        correctnessCell.style.textAlign = "center";
+        correctnessCell.style.fontWeight = "bold";
         correctnessCell.appendChild(correctnessText);
     }
 
     var leftCell = row.insertCell();
-    var leftText = document.createTextNode(" " + left);
-    leftCell.style.textAlign = "left";
+    var leftText = document.createTextNode(left);
+    leftCell.className = "left";
     leftCell.appendChild(leftText);
 
     var rightCell = row.insertCell();
-    var rightText = document.createTextNode(right + " ");
-    rightCell.style.textAlign = "right";
+    var rightText = document.createTextNode(right);
+    rightCell.className = "right";
     rightCell.appendChild(rightText);
 
 }
@@ -155,7 +157,15 @@ function showStats(correctness) {
     nIncorrect = total - nCorrect;
     percentCorrect = nCorrect / total * 100;
     percentIncorrect = nIncorrect / total * 100;
-    stats_div.innerHTML = `${percentCorrect}% [${nCorrect}/${total}]
-    <br>
-    ${percentIncorrect}% [${nIncorrect}/${total}]`;
+
+    nSymbols = total.toString().length;
+    nCorrect_str = nCorrect.toString().padStart(nSymbols, " ");
+    nIncorrect_str = nIncorrect.toString().padStart(nSymbols, " ");
+
+    stats_correct_div.innerText = `${percentCorrect}% [${nCorrect_str}/${total}]`
+    stats_correct_div.style.color = correctTextColor;
+    stats_correct_div.style.fontWeight = "bold";
+    stats_mistakes_div.innerText = `${percentIncorrect}% [${nIncorrect_str}/${total}]`
+    stats_mistakes_div.style.color = incorrectTextColor;
+    stats_mistakes_div.style.fontWeight = "bold";
 }

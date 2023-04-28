@@ -25,6 +25,16 @@ button {
     color: var(--tg-theme-button-text-color);
 }
 
+.right {
+    text-align: right;
+    margin-right: 10em;
+}
+
+.left {
+    text-align: left;
+    margin-left: 10em;
+}
+
 table,
 tr,
 td {
@@ -52,12 +62,8 @@ td {
     display: block;
 }
 
-#js-switch {
-    margin-left: auto;
-    margin-right: 0;
-}
 
-#header {
+.header {
     display: block;
     font-size: 24px;
     margin-bottom: 100px;
