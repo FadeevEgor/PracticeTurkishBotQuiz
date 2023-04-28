@@ -1,4 +1,4 @@
-var PRODUCTION = false;
+var PRODUCTION = true;
 var DEBUG = !PRODUCTION;
 
 var telegram = window.Telegram.WebApp;
