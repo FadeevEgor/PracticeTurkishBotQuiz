@@ -5,38 +5,41 @@ function startScreen() {
     });
     showTable(table_preview);
 
-    setMainButtonAction(actionStartGame);
+    setMainButtonAction(actionNextRound);
     hideProgressMainButton();
     enableMainButton();
     colorMainButton(enabledColor);
 }
 
-function actionStartGame() {
+function actionNextRound() {
+    if (gameState.isNotStarted()) {
+        startGame();
+    } else {
+        gameState.nextRound();
+        if (gameState.isFinish()) {
+            finalScreen();
+        } else {
+            playRound();
+        }
+    }
+}
+
+function startGame() {
     disableMainButton();
     setMainButtonText("Next.");
-    setMainButtonAction(actionContinue);
 
     answerButtons.forEach(button => {
         button.onclick = function () {
             answerPicked(button);
         };
     });
-
     hidePage(page_preview);
     showPage(page_game);
-
-    actionContinue();
+    gameState.nextRound();
     playRound();
 }
 
-function actionContinue() {
-    gameState.nextRound();
-    if (gameState.isFinish()) {
-        finalScreen();
-    } else {
-        playRound();
-    }
-}
+
 
 function playRound() {
     updateProgressBar(gameState.currentRoundNumber - 1, gameState.nRounds);

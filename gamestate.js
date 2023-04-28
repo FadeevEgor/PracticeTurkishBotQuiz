@@ -40,6 +40,10 @@ class GameState {
         return this.currentRoundNumber > this.nRounds;
     };
 
+    isNotStarted() {
+        return this.currentRoundNumber == 0;
+    }
+
     checkAnswer(givenAnswer) {
         return this.answer == givenAnswer;
     };
