@@ -19,6 +19,6 @@ if (PRODUCTION) {
 }
 
 var progressBar = progressJs();
-progressBar.setOption("theme", "blue");
+progressBar.setOptions({ "theme": "blue", overlayMode: false });
 progressBar.start();
 progressBar.set(0);

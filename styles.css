@@ -9,11 +9,6 @@
     --button-color-incorrect: #FF3333;
 }
 
-html,
-body {
-    width: 100%;
-}
-
 body {
     background-color: var(--primary-bg-color);
     color: var(--text-color);

@@ -7,7 +7,10 @@
 }
 
 .progressjs-theme-blue {
+    position: absolute;
     background-color: transparent;
+    left: 0px;
+    width: 100wh;
 }
 
 /* blue theme, like iOS 7 progress bar */

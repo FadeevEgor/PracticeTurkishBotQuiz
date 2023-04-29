@@ -112,6 +112,7 @@
     progressElement.appendChild(progressPercentElement);
 
     if (this._options.overlayMode && targetElement.tagName.toLowerCase() === 'body') {
+      // if (targetElement.tagName.toLowerCase() === 'body') {
       //if we have `body` for target element and also overlay mode is enable, we should use a different
       //position for progress bar container element
       progressElementContainer.style.left = 0;
@@ -120,9 +121,11 @@
       progressElementContainer.style.bottom = 0;
     } else {
       //set progress bar container size and offset
-      progressElementContainer.style.left = targetElementOffset.left + 'px';
+      progressElementContainer.style.left = 0;
+      progressElementContainer.style.right = 0;
+      // progressElementContainer.style.left = targetElementOffset.left + 'px';
       progressElementContainer.style.top = targetElementOffset.top + 'px';
-      progressElementContainer.style.width = targetElementOffset.width + 'px';
+      // progressElementContainer.style.width = targetElementOffset.width + 'px';
 
       if (this._options.overlayMode) {
         progressElementContainer.style.height = targetElementOffset.height + 'px';
@@ -458,6 +461,12 @@
   progressJs.fn = ProgressJs.prototype = {
     clone: function () {
       return new ProgressJs(this);
+    },
+    setHeight: function (height) {
+      bar_class = "progressjs-inner";
+      bar_element = document.body.getElementsByClassName(bar_class)[0];
+      bar_element.height = height;
+      return this;
     },
     setColors: function (foreground, background) {
       container_class = 'progressjs-progress progressjs-theme-' + this._options.theme;

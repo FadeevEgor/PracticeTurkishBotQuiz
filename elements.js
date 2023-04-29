@@ -188,6 +188,8 @@ function showStats(correctness) {
     stats_mistakes_div.style.fontFamily = "monospace";
 
     progressBar.setColors(buttonColorCorrect, buttonColorIncorrect);
+    progressBar.setHeight("5px");
+    progressBar.set(0);
     progressBar.set(percentCorrect);
 }
 
