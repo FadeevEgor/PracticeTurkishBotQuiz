@@ -71,23 +71,23 @@ td {
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: black;
-        color: white;
+        background-color: var(--tg-theme-bg-color, black);
+        color: var(--tg-theme-text-color, white);
     }
 
     button {
-        color: white;
+        color: var(--tg-theme-text-color, white);
     }
 }
 
 /* Light mode */
 @media (prefers-color-scheme: light) {
     body {
-        background-color: white;
-        color: black;
+        background-color: var(--tg-theme-bg-color, white);
+        color: var(--tg-theme-text-color, black);
     }
 
     button {
-        color: black;
+        color: var(--tg-theme-text-color, black);
     }
 }
