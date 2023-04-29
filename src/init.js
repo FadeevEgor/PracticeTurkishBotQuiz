@@ -2,6 +2,12 @@ var PRODUCTION = true;
 var DEBUG = !PRODUCTION;
 
 var telegram = window.Telegram.WebApp;
+if (telegram.platform == "unknown") {
+    var PRODUCTION = false;
+    var DEBUG = true;
+}
+
+
 if (PRODUCTION) {
     telegram.expand();
     var url = new URL(window.location.href);
