@@ -4,10 +4,10 @@ function startScreen() {
         addTableRow(table_preview, left, right);
     });
     showTable(table_preview);
-    setHorizontalSwipeAction(function () {
-        mirrorDictionary(gameState.dictionary);
-        mirrorPreviewTable();
-    });
+    // setHorizontalSwipeAction(function () {
+    //     mirrorDictionary(gameState.dictionary);
+    //     mirrorPreviewTable();
+    // });
     // setDoubleTapAction(function () {
     //     permutation = _.shuffle(_.range(gameState.nRounds));
     //     permuteDictionary(permutation);
