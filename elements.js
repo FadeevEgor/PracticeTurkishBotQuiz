@@ -5,9 +5,11 @@ var page_loading = document.getElementById("page_loading");
 var page_preview = document.getElementById("page_preview");
 var table_preview = document.getElementById("table_preview");
 var tbody_preview = table_preview.getElementsByTagName("tbody")[0];
-var zt = new ZingTouch.Region(document.body);
+var gesture_region = new ZingTouch.Region(document.body);
+var swipe_gesture = new ZingTouch.Swipe();
+var double_tap_gesture = new ZingTouch.Tap({ numInputs: 2, tolerance: 100 });
 function setHorizontalSwipeAction(action) {
-    zt.bind(table_preview, 'swipe', function (e) {
+    gesture_region.bind(table_preview, swipe_gesture, function (e) {
         d = e.detail.data[0].currentDirection;
         if ((d <= 45) || (d >= 315) || ((d >= 135) && (d <= 225))) {
             console.log("↔");
@@ -15,13 +17,10 @@ function setHorizontalSwipeAction(action) {
         }
     }, false);
 }
-function setVerticalSwipeAction(action) {
-    zt.bind(table_preview, 'swipe', function (e) {
-        d = e.detail.data[0].currentDirection;
-        if ((d >= 45) && (d <= 135) || ((d >= 225) && (d <= 315))) {
-            console.log("↕");
-            action();
-        }
+function setDoubleTapAction(action) {
+    gesture_region.bind(table_preview, double_tap_gesture, function (e) {
+        console.log("↕");
+        action();
     }, false);
 }
 

@@ -8,11 +8,11 @@ function startScreen() {
         mirrorDictionary(gameState.dictionary);
         mirrorPreviewTable();
     });
-    // setVerticalSwipeAction(function () {
-    //     permutation = _.shuffle(_.range(gameState.nRounds));
-    //     permuteDictionary(permutation);
-    //     permutePreviewTable(permutation);
-    // });
+    setDoubleTapAction(function () {
+        permutation = _.shuffle(_.range(gameState.nRounds));
+        permuteDictionary(permutation);
+        permutePreviewTable(permutation);
+    });
 
     setMainButtonAction(actionNextRound);
     hideProgressMainButton();
