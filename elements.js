@@ -6,11 +6,20 @@ var page_preview = document.getElementById("page_preview");
 var table_preview = document.getElementById("table_preview");
 var tbody_preview = table_preview.getElementsByTagName("tbody")[0];
 var zt = new ZingTouch.Region(document.body);
-function setSideSwipeAction(action) {
+function setHorizontalSwipeAction(action) {
     zt.bind(table_preview, 'swipe', function (e) {
         d = e.detail.data[0].currentDirection;
         if ((d <= 45) || (d >= 315) || ((d >= 135) && (d <= 225))) {
-            console.log("side swipe");
+            console.log("↔");
+            action();
+        }
+    }, false);
+}
+function setVerticalSwipeAction(action) {
+    zt.bind(table_preview, 'swipe', function (e) {
+        d = e.detail.data[0].currentDirection;
+        if ((d >= 45) && (d <= 135) || ((d >= 225) && (d <= 315))) {
+            console.log("↕");
             action();
         }
     }, false);
@@ -158,6 +167,14 @@ function mirrorPreviewTable() {
     for (let row of rows) {
         [left, right] = row.cells;
         [left.innerText, right.innerText] = [right.innerText, left.innerText];
+    }
+}
+
+function permutePreviewTable(permutation) {
+    rows = tbody_preview.rows;
+    htmls = _.map(rows, row => row.innerHTML);
+    for (const [i, j] of permutation.entries()) {
+        rows[i].innerHTML = htmls[j];
     }
 }
 

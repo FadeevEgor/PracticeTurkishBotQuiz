@@ -31,47 +31,52 @@
         </div>
     </div>
     <div id="page_preview" style="display: none;">
-        <div style="display: block; width: 100%; text-align: left; font-size: 24px;">
-            Swipe horizontally to mirror dictionary.
+        <!-- ↕↔ -->
+        <div class="header_preview">
+            Swipe horizontally to mirror the dictionary.
         </div>
-        <table id="table_preview">
-            <caption>Dictionary</caption>
-            <tbody></tbody>
-        </table>
-    </div>
-    <div id="page_game" style="display: none;">
-        <div id="question" class="question"></div>
-        <div id="buttons" class="buttons">
-            <button id="button_A" type="button"></button>
-            <button id="button_B" type="button"></button>
-            <button id="button_C" type="button"></button>
-            <button id="button_D" type="button"></button>
+        <div class="header_preview">
+            Swipe vertically to shuffle the dictionary.
         </div>
-    </div>
-    <div id="page_results" style="display: none;">
-        <div style="display: block; text-align: center; font-size: 28px;">Results</div>
-        <div class="header">
-            <div style="display: block;">
-                <div style="float: left;">Correct:</div>
-                <div id="stats_correct" style="float: right;"></div>
-            </div>
-            <br>
-            <div style="display: block;">
-                <div style="float: left;">Mistakes:</div>
-                <div id="stats_mistakes" style="float: right;"></div>
+        <div id>
+            <table id="table_preview">
+                <caption>Dictionary</caption>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="page_game" style="display: none;">
+            <div id="question" class="question"></div>
+            <div id="buttons" class="buttons">
+                <button id="button_A" type="button"></button>
+                <button id="button_B" type="button"></button>
+                <button id="button_C" type="button"></button>
+                <button id="button_D" type="button"></button>
             </div>
         </div>
-        <table id="table_results">
-            <caption>Per question results</caption>
-            <tbody></tbody>
-        </table>
-    </div>
+        <div id="page_results" style="display: none;">
+            <div style="display: block; text-align: center; font-size: 28px;">Results</div>
+            <div class="header">
+                <div style="display: block;">
+                    <div style="float: left;">Correct:</div>
+                    <div id="stats_correct" style="float: right;"></div>
+                </div>
+                <br>
+                <div style="display: block;">
+                    <div style="float: left;">Mistakes:</div>
+                    <div id="stats_mistakes" style="float: right;"></div>
+                </div>
+            </div>
+            <table id="table_results">
+                <caption>Per question results</caption>
+                <tbody></tbody>
+            </table>
+        </div>
 
-    <script src="init.js"></script>
-    <script src="colors.js"></script>
-    <script src="elements.js"></script>
-    <script src="dictionary.js"></script>
-    <script src="gamestate.js"></script>
-    <script src="logic.js"></script>
-    <script src="app.js"></script>
+        <script src="init.js"></script>
+        <script src="colors.js"></script>
+        <script src="elements.js"></script>
+        <script src="dictionary.js"></script>
+        <script src="gamestate.js"></script>
+        <script src="logic.js"></script>
+        <script src="app.js"></script>
 </body>

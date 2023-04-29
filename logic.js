@@ -4,9 +4,14 @@ function startScreen() {
         addTableRow(table_preview, left, right);
     });
     showTable(table_preview);
-    setSideSwipeAction(function () {
+    setHorizontalSwipeAction(function () {
         mirrorDictionary(gameState.dictionary);
         mirrorPreviewTable();
+    });
+    setVerticalSwipeAction(function () {
+        permutation = _.shuffle(_.range(gameState.nRounds));
+        permuteDictionary(permutation);
+        permutePreviewTable(permutation);
     });
 
     setMainButtonAction(actionNextRound);

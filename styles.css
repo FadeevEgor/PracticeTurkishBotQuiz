@@ -67,6 +67,15 @@ td {
     margin-bottom: 50px;
 }
 
+.header_preview {
+    display: block;
+    width: 100%;
+    text-align: left;
+    text-indent: 2%;
+    font-size: 20px;
+    color: var(--tg-theme-secondary-bg-color, grey);
+
+}
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {

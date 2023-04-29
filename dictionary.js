@@ -13,7 +13,6 @@ async function load_dictionary(index) {
     return _.shuffle(dictionary);
 }
 
-
 function sampleOptions(dictionary, question, correctAnswer) {
     options = _.sample(dictionary, 4);
     options = options.filter(option => (option[0] != question) && (option[1] != correctAnswer));
@@ -27,5 +26,13 @@ function mirrorDictionary(dictionary) {
     for (const i of _.range(dictionary.length)) {
         [left, right] = dictionary[i];
         dictionary[i] = [right, left];
+    }
+}
+
+function permuteDictionary(permutation) {
+    dictionary = gameState.dictionary;
+    copy = structuredClone(dictionary);
+    for (const [i, j] of permutation.entries()) {
+        dictionary[i] = copy[j];
     }
 }
