@@ -1,6 +1,6 @@
 body {
-    background-color: var(--tg-theme-bg-color, white);
-    color: var(--tg-theme-text-color, black);
+    background-color: var(--tg-theme-bg-color, black);
+    color: var(--tg-theme-text-color, white);
 }
 
 #question {
@@ -29,7 +29,7 @@ button {
     font-size: 24px;
     text-align: center;
     background-color: var(--tg-theme-button-color, #5288c1);
-    color: var(--tg-theme-button-text-color, black);
+    color: var(--tg-theme-button-text-color, white);
 }
 
 .right {

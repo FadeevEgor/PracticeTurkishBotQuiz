@@ -7,7 +7,7 @@ if (PRODUCTION) {
     var secondaryBackgroundColor = new Color(theme.secondary_bg_color);
 } else {
     var enabledColor = new Color("#5288c1");
-    var backgroundColor = new Color("white");
+    var backgroundColor = new Color("black");
     var secondaryBackgroundColor = new Color("grey");
 }
 var disabledColor = enabledColor.mix(backgroundColor, .5);
