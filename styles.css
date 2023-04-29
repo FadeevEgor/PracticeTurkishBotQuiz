@@ -1,6 +1,17 @@
+:root {
+    --primary-bg-color: var(--tg-theme-bg-color, black);
+    --secondary-bg-color: var(--tg-theme-secondary-bg-color, grey);
+    --text-color: var(--tg-theme-text-color, white);
+    --button-text-color: var(--tg-theme-button-text-color, white);
+    --button-color-enabled: var(--tg-theme-button-color, #5288c1);
+    --button-color-disabled: color-mix(in srgb, black 50%, white);
+    --button-color-correct: #00CC99;
+    --button-color-incorrect: #FF3333;
+}
+
 body {
-    background-color: var(--tg-theme-bg-color, black);
-    color: var(--tg-theme-text-color, white);
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
 }
 
 #question {
@@ -28,8 +39,8 @@ button {
     padding: 14px 28px;
     font-size: 24px;
     text-align: center;
-    background-color: var(--tg-theme-button-color, #5288c1);
-    color: var(--tg-theme-button-text-color, white);
+    background-color: var(--button-color-disabled);
+    color: var(--button-text-color);
 }
 
 .right {

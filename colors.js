@@ -1,17 +1,12 @@
-var correctButtonColor = new Color("#00CC99");
-var incorrectButtonColor = new Color("#FF3333");
-if (PRODUCTION) {
-    theme = telegram.themeParams;
-    var enabledColor = new Color(theme.button_color);
-    var backgroundColor = new Color(theme.bg_color);
-    var secondaryBackgroundColor = new Color(theme.secondary_bg_color);
-} else {
-    var enabledColor = new Color("#5288c1");
-    var backgroundColor = new Color("black");
-    var secondaryBackgroundColor = new Color("grey");
-}
-var disabledColor = enabledColor.mix(backgroundColor, .5);
+var style = getComputedStyle(document.body);
+
+var buttonColorCorrect = new Color(style.getPropertyValue('--button-color-correct'));
+var buttonColorIncorrect = new Color(style.getPropertyValue('--button-color-incorrect'));
+var buttonColorEnabled = new Color(style.getPropertyValue("--button-color-enabled"));
+var backgroundColor = new Color(style.getPropertyValue("--primary-bg-color"));
+var secondaryBackgroundColor = new Color(style.getPropertyValue("--secondary-bg-color"));
 var invertedBackgroundColor = new Color(backgroundColor);
 _.range(3).forEach(i => invertedBackgroundColor.srgb[i] = 1 - invertedBackgroundColor.srgb[i]);
-var correctTextColor = correctButtonColor.mix(invertedBackgroundColor, .25);
-var incorrectTextColor = incorrectButtonColor.mix(invertedBackgroundColor, .25)
+var disabledColor = buttonColorEnabled.mix(backgroundColor, .5);
+var correctTextColor = buttonColorCorrect.mix(invertedBackgroundColor, .25);
+var incorrectTextColor = buttonColorIncorrect.mix(invertedBackgroundColor, .25)

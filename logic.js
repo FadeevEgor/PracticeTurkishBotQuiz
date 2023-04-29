@@ -8,7 +8,7 @@ function startScreen() {
     setMainButtonAction(actionNextRound);
     hideProgressMainButton();
     enableMainButton();
-    colorMainButton(enabledColor);
+    colorMainButton(buttonColorEnabled);
     hidePage(page_loading);
     showPage(page_preview);
 }
@@ -61,7 +61,7 @@ function displayQuestion(question, options) {
         if (option !== undefined) {
             button.innerText = option;
             button.disabled = false;
-            colorAnswerButton(button, enabledColor);
+            colorAnswerButton(button, buttonColorEnabled);
         } else {
             colorAnswerButton(button, disabledColor);
             button.disabled = true;
@@ -73,7 +73,6 @@ function displayQuestion(question, options) {
 
 function finalScreen() {
     hideMainButton();
-    endProgressBar();
     hidePage(page_game);
     showPage(page_results);
     showStats(gameState.correctness);
@@ -89,7 +88,7 @@ function answerPicked(buttonClicked) {
     answerButtons.forEach(button => {
         button.disabled = true;
         if (gameState.checkAnswer(button.innerText)) {
-            colorAnswerButton(button, correctButtonColor);
+            colorAnswerButton(button, buttonColorCorrect);
         } else {
             colorAnswerButton(button, disabledColor);
         }
@@ -99,10 +98,10 @@ function answerPicked(buttonClicked) {
     if (gameState.checkAnswer(pickedAnswer)) {
         gameState.correctAnswer();
     } else {
-        colorAnswerButton(buttonClicked, incorrectButtonColor);
+        colorAnswerButton(buttonClicked, buttonColorIncorrect);
         gameState.incorrectAnswer();
     }
     enableMainButton();
-    colorMainButton(enabledColor);
+    colorMainButton(buttonColorEnabled);
 }
 

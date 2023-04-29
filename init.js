@@ -15,7 +15,7 @@ if (PRODUCTION) {
     var index2 = parseInt(telegram.initDataUnsafe.start_param);
     var index = index2;
 } else {
-    var index = 4;
+    var index = 1;
 }
 
 var progressBar = progressJs();

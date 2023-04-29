@@ -17,7 +17,7 @@
     // Browser globals
     factory(root);
   }
-} (this, function (exports) {
+}(this, function (exports) {
   //Default config/variables
   var VERSION = '0.1.0';
 
@@ -29,7 +29,7 @@
   function ProgressJs(obj) {
 
     if (typeof obj.length != 'undefined') {
-      this._targetElement = obj; 
+      this._targetElement = obj;
     } else {
       this._targetElement = [obj];
     }
@@ -37,7 +37,7 @@
     if (typeof window._progressjsId === 'undefined')
       window._progressjsId = 1;
 
-    if (typeof window._progressjsIntervals === 'undefined') 
+    if (typeof window._progressjsIntervals === 'undefined')
       window._progressjsIntervals = {};
 
     this._options = {
@@ -79,7 +79,7 @@
    * @param {Object} targetElement
    */
   function _setProgress(targetElement) {
-    
+
     //if the target element already as `data-progressjs`, ignore the init
     if (targetElement.hasAttribute("data-progressjs"))
       return;
@@ -88,10 +88,10 @@
     var targetElementOffset = _getOffset.call(this, targetElement);
 
     targetElement.setAttribute("data-progressjs", window._progressjsId);
-    
+
     var progressElementContainer = document.createElement('div');
     progressElementContainer.className = 'progressjs-progress progressjs-theme-' + this._options.theme;
-
+    console.log(progressElementContainer.className);
 
     //set the position percent elements, it depends on targetElement tag
     if (targetElement.tagName.toLowerCase() === 'body') {
@@ -110,18 +110,18 @@
     progressPercentElement.innerHTML = "1%";
 
     progressElement.appendChild(progressPercentElement);
-    
+
     if (this._options.overlayMode && targetElement.tagName.toLowerCase() === 'body') {
       //if we have `body` for target element and also overlay mode is enable, we should use a different
       //position for progress bar container element
-      progressElementContainer.style.left   = 0;
-      progressElementContainer.style.right  = 0;
-      progressElementContainer.style.top    = 0;
+      progressElementContainer.style.left = 0;
+      progressElementContainer.style.right = 0;
+      progressElementContainer.style.top = 0;
       progressElementContainer.style.bottom = 0;
     } else {
       //set progress bar container size and offset
-      progressElementContainer.style.left  = targetElementOffset.left + 'px';
-      progressElementContainer.style.top   = targetElementOffset.top + 'px';
+      progressElementContainer.style.left = targetElementOffset.left + 'px';
+      progressElementContainer.style.top = targetElementOffset.top + 'px';
       progressElementContainer.style.width = targetElementOffset.width + 'px';
 
       if (this._options.overlayMode) {
@@ -164,14 +164,14 @@
    */
   function _setPercentFor(targetElement, percent) {
     var self = this;
-    
+
     //prevent overflow!
     if (percent >= 100)
       percent = 100;
 
     if (targetElement.hasAttribute("data-progressjs")) {
       //setTimeout for better CSS3 animation applying in some cases
-      setTimeout(function() {
+      setTimeout(function () {
 
         //call the onprogress callback
         if (typeof self._onProgressCallback != 'undefined') {
@@ -181,17 +181,17 @@
         var percentElement = _getPercentElement(targetElement);
         percentElement.style.width = parseInt(percent) + '%';
 
-        var percentElement  = percentElement.querySelector(".progressjs-percent");
+        var percentElement = percentElement.querySelector(".progressjs-percent");
         var existingPercent = parseInt(percentElement.innerHTML.replace('%', ''));
 
         //start increase/decrease the percent element with animation
-        (function(percentElement, existingPercent, currentPercent) {
+        (function (percentElement, existingPercent, currentPercent) {
 
           var increasement = true;
           if (existingPercent > currentPercent) {
             increasement = false;
           }
-          
+
           var intervalIn = 10;
           function changePercentTimer(percentElement, existingPercent, currentPercent) {
             //calculate the distance between two percents
@@ -207,14 +207,14 @@
             if ((existingPercent - currentPercent) != 0) {
               //set the percent
               percentElement.innerHTML = (increasement ? (++existingPercent) : (--existingPercent)) + '%';
-              setTimeout(function() { changePercentTimer(percentElement, existingPercent, currentPercent); }, intervalIn);
+              setTimeout(function () { changePercentTimer(percentElement, existingPercent, currentPercent); }, intervalIn);
             }
           }
-          
+
           changePercentTimer(percentElement, existingPercent, currentPercent);
-          
+
         })(percentElement, existingPercent, parseInt(percent));
-        
+
       }, 50);
     }
   }
@@ -228,7 +228,7 @@
    */
   function _getPercentElement(targetElement) {
     var progressjsId = parseInt(targetElement.getAttribute('data-progressjs'));
-    return document.querySelector('.progressjs-container > .progressjs-progress[data-progressjs="' + progressjsId + '"] > .progressjs-inner');  
+    return document.querySelector('.progressjs-container > .progressjs-progress[data-progressjs="' + progressjsId + '"] > .progressjs-inner');
   }
 
   /**
@@ -241,13 +241,13 @@
    */
   function _autoIncrease(size, millisecond) {
     var self = this;
-    
+
     var progressjsId = parseInt(this._targetElement[0].getAttribute('data-progressjs'));
-    
+
     if (typeof window._progressjsIntervals[progressjsId] != 'undefined') {
       clearInterval(window._progressjsIntervals[progressjsId]);
     }
-    window._progressjsIntervals[progressjsId] = setInterval(function() {
+    window._progressjsIntervals[progressjsId] = setInterval(function () {
       _increasePercent.call(self, size);
     }, millisecond);
   }
@@ -263,7 +263,7 @@
     for (var i = 0, elmsLength = this._targetElement.length; i < elmsLength; i++) {
       var currentElement = this._targetElement[i];
       if (currentElement.hasAttribute('data-progressjs')) {
-        var percentElement  = _getPercentElement(currentElement);
+        var percentElement = _getPercentElement(currentElement);
         var existingPercent = parseInt(percentElement.style.width.replace('%', ''));
         if (existingPercent) {
           _setPercentFor.call(this, currentElement, existingPercent + (size || 1));
@@ -288,10 +288,10 @@
       } else {
         this._onBeforeEndCallback.call(this);
       }
-    } 
+    }
 
     var progressjsId = parseInt(this._targetElement[0].getAttribute('data-progressjs'));
-    
+
     for (var i = 0, elmsLength = this._targetElement.length; i < elmsLength; i++) {
       var currentElement = this._targetElement[i];
       var percentElement = _getPercentElement(currentElement);
@@ -300,7 +300,7 @@
         return;
 
       var existingPercent = parseInt(percentElement.style.width.replace('%', ''));
-      
+
       var timeoutSec = 1;
       if (existingPercent < 100) {
         _setPercentFor.call(this, currentElement, 100);
@@ -309,11 +309,11 @@
 
       //I believe I should handle this situation with eventListener and `transitionend` event but I'm not sure
       //about compatibility with IEs. Should be fixed in further versions.
-      (function(percentElement, currentElement) {
-        setTimeout(function() {
+      (function (percentElement, currentElement) {
+        setTimeout(function () {
           percentElement.parentNode.className += " progressjs-end";
 
-          setTimeout(function() {
+          setTimeout(function () {
             //remove the percent element from page
             percentElement.parentNode.parentNode.removeChild(percentElement.parentNode);
             //and remove the attribute
@@ -330,7 +330,7 @@
         clearInterval(window._progressjsIntervals[progressjsId]);
         window._progressjsIntervals[progressjsId] = null;
         delete window._progressjsIntervals[progressjsId];
-      } catch(ex) { }
+      } catch (ex) { }
     }
   }
 
@@ -412,7 +412,7 @@
     } else if (typeof (targetElm) === 'string') {
       //select the target element with query selector
       var targetElement = document.querySelectorAll(targetElm);
-       
+
       if (targetElement) {
         return new ProgressJs(targetElement);
       } else {
@@ -459,35 +459,44 @@
     clone: function () {
       return new ProgressJs(this);
     },
-    setOption: function(option, value) {
+    setColors: function (foreground, background) {
+      container_class = 'progressjs-progress progressjs-theme-' + this._options.theme;
+      container_div = document.getElementsByClassName(container_class)[0];
+      container_div.style.backgroundColor = background;
+      bar_class = "progressjs-inner";
+      bar_element = container_div.getElementsByClassName(bar_class)[0];
+      bar_element.style.backgroundColor = foreground;
+      return this;
+    },
+    setOption: function (option, value) {
       this._options[option] = value;
       return this;
     },
-    setOptions: function(options) {
+    setOptions: function (options) {
       this._options = _mergeOptions(this._options, options);
       return this;
     },
-    start: function() {
+    start: function () {
       _startProgress.call(this);
       return this;
     },
-    set: function(percent) {
+    set: function (percent) {
       _setPercent.call(this, percent);
       return this;
     },
-    increase: function(size) {
+    increase: function (size) {
       _increasePercent.call(this, size);
       return this;
     },
-    autoIncrease: function(size, millisecond) {
+    autoIncrease: function (size, millisecond) {
       _autoIncrease.call(this, size, millisecond);
       return this;
     },
-    end: function() {
+    end: function () {
       _end.call(this);
       return this;
     },
-    onbeforeend: function(providedCallback) {
+    onbeforeend: function (providedCallback) {
       if (typeof (providedCallback) === 'function') {
         this._onBeforeEndCallback = providedCallback;
       } else {
@@ -495,7 +504,7 @@
       }
       return this;
     },
-    onbeforestart: function(providedCallback) {
+    onbeforestart: function (providedCallback) {
       if (typeof (providedCallback) === 'function') {
         this._onBeforeStartCallback = providedCallback;
       } else {
@@ -503,7 +512,7 @@
       }
       return this;
     },
-    onprogress: function(providedCallback) {
+    onprogress: function (providedCallback) {
       if (typeof (providedCallback) === 'function') {
         this._onProgressCallback = providedCallback;
       } else {
