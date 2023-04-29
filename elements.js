@@ -7,7 +7,7 @@ var table_preview = document.getElementById("table_preview");
 var tbody_preview = table_preview.getElementsByTagName("tbody")[0];
 var gesture_region = new ZingTouch.Region(document.body);
 var swipe_gesture = new ZingTouch.Swipe();
-var double_tap_gesture = new ZingTouch.Tap({ numInputs: 2, tolerance: 100 });
+var double_tap_gesture = new ZingTouch.Tap({ numInputs: 2, tolerance: 300, maxDelay: 500, });
 function setHorizontalSwipeAction(action) {
     gesture_region.bind(table_preview, swipe_gesture, function (e) {
         d = e.detail.data[0].currentDirection;
