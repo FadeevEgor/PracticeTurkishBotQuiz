@@ -1,22 +1,3 @@
-var PRODUCTION = true;
-var DEBUG = !PRODUCTION;
-
-var telegram = window.Telegram.WebApp;
-if (PRODUCTION) {
-    telegram.expand();
-    var url = new URL(window.location.href);
-    var index1 = parseInt(url.searchParams.get("tgWebAppStartParam"));
-    var index2 = parseInt(telegram.initDataUnsafe.start_param);
-    var index = index2;
-} else {
-    var index = 1;
-}
-
-var progressBar = progressJs();
-progressBar.setOption("theme", "blue");
-progressBar.start();
-progressBar.set(0);
-
 var correctButtonColor = new Color("#00CC99");
 var incorrectButtonColor = new Color("#FF3333");
 if (PRODUCTION) {
@@ -34,4 +15,3 @@ var invertedBackgroundColor = new Color(backgroundColor);
 _.range(3).forEach(i => invertedBackgroundColor.srgb[i] = 1 - invertedBackgroundColor.srgb[i]);
 var correctTextColor = correctButtonColor.mix(invertedBackgroundColor, .25);
 var incorrectTextColor = incorrectButtonColor.mix(invertedBackgroundColor, .25)
-

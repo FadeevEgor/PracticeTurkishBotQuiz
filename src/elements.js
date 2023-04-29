@@ -23,6 +23,7 @@ var tbody_results = table_results.getElementsByTagName("tbody")[0];
 
 if (DEBUG) {
     var button_debug = document.createElement("button");
+    button_debug.style.height = "50px";
 }
 
 function hidePage(page) {
