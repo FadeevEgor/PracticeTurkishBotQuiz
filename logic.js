@@ -49,7 +49,7 @@ function playRound() {
     updateProgressBar(gameState.currentRoundNumber - 1, gameState.nRounds);
 
     [question, correctAnswer] = gameState.questionAnswer;
-    options = sampleOptions(dictionary, question, correctAnswer);
+    options = sampleOptions(gameState.dictionary, question, correctAnswer);
     displayQuestion(question, options);
 }
 
