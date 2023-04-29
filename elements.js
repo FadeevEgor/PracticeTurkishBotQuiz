@@ -187,8 +187,7 @@ function showStats(correctness) {
     stats_mistakes_div.style.fontWeight = "bold";
     stats_mistakes_div.style.fontFamily = "monospace";
 
-    // progressBar.end();
-    progressBar.setColors("green", "red");
+    progressBar.setColors(buttonColorCorrect, buttonColorIncorrect);
     progressBar.set(percentCorrect);
 }
 
