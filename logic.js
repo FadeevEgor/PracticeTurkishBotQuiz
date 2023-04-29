@@ -4,6 +4,10 @@ function startScreen() {
         addTableRow(table_preview, left, right);
     });
     showTable(table_preview);
+    setSideSwipeAction(function () {
+        mirrorDictionary(gameState.dictionary);
+        mirrorPreviewTable();
+    });
 
     setMainButtonAction(actionNextRound);
     hideProgressMainButton();
@@ -101,11 +105,4 @@ function answerPicked(buttonClicked) {
     enableMainButton();
     colorMainButton(enabledColor);
 }
-
-
-
-
-
-
-
 

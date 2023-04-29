@@ -22,3 +22,10 @@ function sampleOptions(dictionary, question, correctAnswer) {
     options.push(correctAnswer);
     return _.shuffle(options);
 }
+
+function mirrorDictionary(dictionary) {
+    for (const i of _.range(dictionary.length)) {
+        [left, right] = dictionary[i];
+        dictionary[i] = [right, left];
+    }
+}
