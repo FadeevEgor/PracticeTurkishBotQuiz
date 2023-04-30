@@ -1,11 +1,13 @@
-var PRODUCTION = true;
-var DEBUG = !PRODUCTION;
 
 var telegram = window.Telegram.WebApp;
 if (telegram.platform == "unknown") {
     var PRODUCTION = false;
-    var DEBUG = true;
 }
+else {
+    var PRODUCTION = true;
+}
+var DEBUG = !PRODUCTION;
+
 
 if (PRODUCTION) {
     telegram.expand();

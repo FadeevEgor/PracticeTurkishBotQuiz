@@ -28,8 +28,8 @@ body {
 .buttons {
     display: grid;
     position: fixed;
-    height: calc(var(--tg-viewport-stable-height) - var(--question-height) - var(--main-button-height));
-    bottom: 50px;
+    top: var(--question-height);
+    height: calc(var(--tg-viewport-stable-height) - var(--question-height) - var(--main-button-height) - 10px);
     grid-template-columns: 1fr;
     row-gap: 10px;
     width: 100%;
@@ -46,7 +46,7 @@ button {
 }
 
 #explicit_main_button {
-    display: block;
+    display: none;
     width: 100%;
     position: fixed;
     bottom: 0;
