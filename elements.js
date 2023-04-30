@@ -20,11 +20,7 @@ var stats_correct_div = document.getElementById("stats_correct");
 var stats_mistakes_div = document.getElementById("stats_mistakes");
 var table_results = document.getElementById("table_results");
 var tbody_results = table_results.getElementsByTagName("tbody")[0];
-
-if (DEBUG) {
-    var button_debug = document.createElement("button");
-    button_debug.style.height = "50px";
-}
+var explicit_main_button = document.getElementById("explicit_main_button");
 
 function hidePage(page) {
     page.style.display = "none";
@@ -32,7 +28,7 @@ function hidePage(page) {
 
 function showPage(page) {
     page.style.display = "block";
-    if (DEBUG) { page.appendChild(button_debug); }
+    if (DEBUG) { page.appendChild(explicit_main_button); }
 }
 
 function updateProgressBar(i, N) {
@@ -55,23 +51,23 @@ function showQuestion(question) {
 
 function hideMainButton() {
     mainButton.hide();
-    if (DEBUG) { button_debug.style.visibility = "hidden"; }
+    if (DEBUG) { explicit_main_button.style.display = "none"; }
 }
 
 function showMainButton() {
     mainButton.show();
-    if (DEBUG) { button_debug.style.visibility = "visible"; }
+    if (DEBUG) { explicit_main_button.style.display = "block"; }
 }
 
 function setMainButtonText(text) {
     mainButton.text = text;
-    if (DEBUG) { button_debug.innerText = text; }
+    if (DEBUG) { explicit_main_button.innerText = text; }
 }
 
 function colorMainButton(color) {
     colorCode = color.to("srgb").toString({ format: "hex" });
     mainButton.color = colorCode;
-    if (DEBUG) { button_debug.style.backgroundColor = colorCode; }
+    if (DEBUG) { explicit_main_button.style.backgroundColor = colorCode; }
 }
 
 function hideProgressMainButton() {
@@ -84,17 +80,17 @@ function showProgressMainButton() {
 
 function disableMainButton() {
     mainButton.disable();
-    if (DEBUG) { button_debug.disabled = true; }
+    if (DEBUG) { explicit_main_button.disabled = true; }
 }
 
 function enableMainButton() {
     mainButton.enable();
-    if (DEBUG) { button_debug.disabled = false; }
+    if (DEBUG) { explicit_main_button.disabled = false; }
 }
 
 function setMainButtonAction(action) {
     mainButton.onClick(action);
-    if (DEBUG) { button_debug.onclick = action; }
+    if (DEBUG) { explicit_main_button.onclick = action; }
 }
 
 

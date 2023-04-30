@@ -6,7 +6,6 @@ showProgressMainButton();
 
 load_dictionary(index).
     then(dictionary => {
-        console.log(dictionary);
         gameState.setDictionary(dictionary);
         startScreen();
     });

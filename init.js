@@ -7,7 +7,6 @@ if (telegram.platform == "unknown") {
     var DEBUG = true;
 }
 
-
 if (PRODUCTION) {
     telegram.expand();
     var url = new URL(window.location.href);

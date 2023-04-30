@@ -91,7 +91,6 @@
 
     var progressElementContainer = document.createElement('div');
     progressElementContainer.className = 'progressjs-progress progressjs-theme-' + this._options.theme;
-    console.log(progressElementContainer.className);
 
     //set the position percent elements, it depends on targetElement tag
     if (targetElement.tagName.toLowerCase() === 'body') {

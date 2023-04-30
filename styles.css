@@ -4,7 +4,7 @@
     --text-color: var(--tg-theme-text-color, white);
     --button-text-color: var(--tg-theme-button-text-color, white);
     --button-color-enabled: var(--tg-theme-button-color, #5288c1);
-    --button-color-disabled: color-mix(in srgb, black 50%, white);
+    --button-color-disabled: color-mix(in srgb, var(--button-color-enabled) 50%, var(--primary-bg-color));
     --button-color-correct: #00CC99;
     --button-color-incorrect: #FF3333;
 }
@@ -16,32 +16,41 @@ body {
 
 #question {
     width: 100%;
-    height: 10%;
+    height: 100px;
     font-size: xx-large;
     text-align: center;
     display: block;
+    font-size: 36px;
 }
 
-#buttons {
-    height: 70%;
+.buttons {
+    display: grid;
+    position: fixed;
+    top: 100px;
+    bottom: 70px;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
     width: 100%;
-    height: calc(var(--tg-viewport-stable-height) - 150px);
 }
 
 button {
     display: block;
-    position: sticky;
     width: 100%;
-    height: 20%;
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
     border: none;
-    padding: 14px 28px;
     font-size: 24px;
     text-align: center;
     background-color: var(--button-color-disabled);
     color: var(--button-text-color);
 }
+
+#explicit_main_button {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--button-color-disabled);
+    height: 50px;
+}
+
 
 .right {
     text-align: right;
@@ -86,28 +95,4 @@ td {
     font-size: 20px;
     color: var(--tg-theme-secondary-bg-color, grey);
 
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--tg-theme-bg-color, black);
-        color: var(--tg-theme-text-color, white);
-    }
-
-    button {
-        color: var(--tg-theme-text-color, white);
-    }
-}
-
-/* Light mode */
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: var(--tg-theme-bg-color, white);
-        color: var(--tg-theme-text-color, black);
-    }
-
-    button {
-        color: var(--tg-theme-text-color, black);
-    }
 }

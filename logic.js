@@ -14,7 +14,6 @@ function startScreen() {
 }
 
 function actionNextRound() {
-    console.log("actionNext");
     if (gameState.isNotStarted()) {
         startGame();
     } else {
@@ -28,7 +27,6 @@ function actionNextRound() {
 }
 
 function startGame() {
-    console.log("startGame");
     disableMainButton();
     setMainButtonText("Next.");
 
@@ -44,7 +42,6 @@ function startGame() {
 }
 
 function playRound() {
-    console.log("playRound");
     updateProgressBar(gameState.currentRoundNumber - 1, gameState.nRounds);
 
     [question, correctAnswer] = gameState.questionAnswer;
@@ -53,7 +50,6 @@ function playRound() {
 }
 
 function displayQuestion(question, options) {
-    console.log("displayQuestion");
     showQuestion(question);
     for (let i = 0; i < 4; i++) {
         option = options[i];
