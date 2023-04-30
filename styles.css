@@ -7,6 +7,8 @@
     --button-color-disabled: color-mix(in srgb, var(--button-color-enabled) 50%, var(--primary-bg-color));
     --button-color-correct: #00CC99;
     --button-color-incorrect: #FF3333;
+    --question-height: 100px;
+    --main-button-height: 25px;
 }
 
 body {
@@ -26,8 +28,8 @@ body {
 .buttons {
     display: grid;
     position: fixed;
-    top: 100px;
-    bottom: 70px;
+    height: calc(var(--tg-viewport-stable-height) - var(--question-height) - var(--main-button-height));
+    bottom: 50px;
     grid-template-columns: 1fr;
     row-gap: 10px;
     width: 100%;
@@ -45,10 +47,11 @@ button {
 
 #explicit_main_button {
     display: block;
+    width: 100%;
     position: fixed;
     bottom: 0;
     background-color: var(--button-color-disabled);
-    height: 50px;
+    height: var(--main-button-height);
 }
 
 
