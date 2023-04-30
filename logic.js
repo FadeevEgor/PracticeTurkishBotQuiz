@@ -4,6 +4,15 @@ function startScreen() {
         addTableRow(table_preview, left, right);
     });
     showTable(table_preview);
+    button_mirror.onclick = () => {
+        mirrorDictionary();
+        gameState.dictionary.sort(sorting_func);
+        refillTable(table_preview, gameState.dictionary);
+    };
+    button_shuffle.onclick = () => {
+        gameState.toShuffle ^= true;
+        button_shuffle.style.color = gameState.toShuffle ? buttonColorEnabled : buttonColorDisabled;;
+    };
 
     setMainButtonAction(actionNextRound);
     hideProgressMainButton();
@@ -27,6 +36,7 @@ function actionNextRound() {
 }
 
 function startGame() {
+    hidePage(page_preview);
     disableMainButton();
     setMainButtonText("Next.");
 
@@ -35,7 +45,9 @@ function startGame() {
             answerPicked(button);
         };
     });
-    hidePage(page_preview);
+    if (gameState.toShuffle) {
+        gameState.dictionary = _.shuffle(gameState.dictionary);
+    }
     showPage(page_game);
     gameState.nextRound();
     playRound();
@@ -59,12 +71,12 @@ function displayQuestion(question, options) {
             button.disabled = false;
             colorAnswerButton(button, buttonColorEnabled);
         } else {
-            colorAnswerButton(button, disabledColor);
+            colorAnswerButton(button, buttonColorDisabled);
             button.disabled = true;
         }
     }
     disableMainButton();
-    colorMainButton(disabledColor);
+    colorMainButton(buttonColorDisabled);
 }
 
 function finalScreen() {
@@ -86,7 +98,7 @@ function answerPicked(buttonClicked) {
         if (gameState.checkAnswer(button.innerText)) {
             colorAnswerButton(button, buttonColorCorrect);
         } else {
-            colorAnswerButton(button, disabledColor);
+            colorAnswerButton(button, buttonColorDisabled);
         }
     });
 

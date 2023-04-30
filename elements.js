@@ -5,6 +5,8 @@ var page_loading = document.getElementById("page_loading");
 var page_preview = document.getElementById("page_preview");
 var table_preview = document.getElementById("table_preview");
 var tbody_preview = table_preview.getElementsByTagName("tbody")[0];
+var button_shuffle = document.getElementById("shuffle_button");
+var button_mirror = document.getElementById("mirror_button");
 
 var page_game = document.getElementById("page_game");
 var question_div = document.getElementById("question");
@@ -139,19 +141,11 @@ function addTableRow(table, left, right, isCorrect) {
     rightCell.appendChild(rightText);
 }
 
-function mirrorPreviewTable() {
-    rows = tbody_preview.getElementsByTagName("tr");
-    for (let row of rows) {
+function refillTable(table, dictionary) {
+    rows = table.getElementsByTagName("tr");
+    for (let [row, entry] of _.zip(rows, dictionary)) {
         [left, right] = row.cells;
-        [left.innerText, right.innerText] = [right.innerText, left.innerText];
-    }
-}
-
-function permutePreviewTable(permutation) {
-    rows = tbody_preview.rows;
-    htmls = _.map(rows, row => row.innerHTML);
-    for (const [i, j] of permutation.entries()) {
-        rows[i].innerHTML = htmls[j];
+        [left.innerText, right.innerText] = entry;
     }
 }
 

@@ -16,6 +16,28 @@ body {
     color: var(--text-color);
 }
 
+
+div svg {
+    height: 32px;
+}
+
+#preview_header {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-right: 2%;
+    margin-left: 2%;
+    font-size: 28px;
+}
+
+#shuffle_button,
+#mirror_button {
+    display: inline;
+    background-color: transparent;
+    color: var(--button-color-enabled);
+    font-size: 28px;
+}
+
 #question {
     width: 100%;
     height: 100px;
@@ -36,22 +58,25 @@ body {
 }
 
 button {
+    border: none;
+    background-color: var(--button-color-enabled);
+    color: var(--button-text-color);
+    text-align: center;
+}
+
+.answer_button {
     display: block;
     width: 100%;
-    border: none;
     font-size: 24px;
-    text-align: center;
-    background-color: var(--button-color-disabled);
-    color: var(--button-text-color);
 }
 
 #explicit_main_button {
     display: none;
-    width: 100%;
     position: fixed;
     bottom: 0;
-    background-color: var(--button-color-disabled);
     height: var(--main-button-height);
+    width: 100%;
+    font-size: 24px;
 }
 
 

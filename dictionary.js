@@ -9,9 +9,16 @@ async function load_dictionary(index) {
         body: JSON.stringify({ "index": index }),
     };
     const response = await fetch(db_url, payload);
-    dictionary = await response.json();
-    return _.shuffle(dictionary);
+    dictionary = await response.json()
+    return dictionary.sort(sorting_func);
 }
+
+function sorting_func(entry_A, entry_B) {
+    [a, other] = entry_A;
+    [b, other] = entry_B;
+    return a.localeCompare(b, undefined, { sensitivity: 'base' });
+}
+
 
 function sampleOptions(dictionary, question, correctAnswer) {
     options = _.sample(dictionary, 4);
@@ -22,10 +29,10 @@ function sampleOptions(dictionary, question, correctAnswer) {
     return _.shuffle(options);
 }
 
-function mirrorDictionary(dictionary) {
-    for (const i of _.range(dictionary.length)) {
-        [left, right] = dictionary[i];
-        dictionary[i] = [right, left];
+function mirrorDictionary() {
+    for (const i of _.range(gameState.nRounds)) {
+        [left, right] = gameState.dictionary[i];
+        gameState.dictionary[i] = [right, left];
     }
 }
 

@@ -4,6 +4,7 @@ class GameState {
         this.nRounds = -1;
         this.correctness = [];
         this.currentRoundNumber = 0;
+        this.toShuffle = true;
     };
 
     setDictionary(dictionary) {
