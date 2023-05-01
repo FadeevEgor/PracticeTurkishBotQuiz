@@ -11,13 +11,13 @@ function startScreen() {
     };
     button_shuffle.onclick = () => {
         gameState.toShuffle ^= true;
-        button_shuffle.style.color = gameState.toShuffle ? buttonColorEnabled : buttonColorDisabled;;
+        button_shuffle.style.color = gameState.toShuffle ? colorEnabled : colorDisabled;;
     };
 
     setMainButtonAction(actionNextRound);
     hideProgressMainButton();
     enableMainButton();
-    colorMainButton(buttonColorEnabled);
+    colorMainButton(colorEnabled);
     hidePage(page_loading);
     showPage(page_preview);
 }
@@ -69,14 +69,14 @@ function displayQuestion(question, options) {
         if (option !== undefined) {
             button.innerText = option;
             button.disabled = false;
-            colorAnswerButton(button, buttonColorEnabled);
+            colorAnswerButton(button, colorEnabled);
         } else {
-            colorAnswerButton(button, buttonColorDisabled);
+            colorAnswerButton(button, colorDisabled);
             button.disabled = true;
         }
     }
     disableMainButton();
-    colorMainButton(buttonColorDisabled);
+    colorMainButton(colorDisabled);
 }
 
 function finalScreen() {
@@ -96,9 +96,9 @@ function answerPicked(buttonClicked) {
     answerButtons.forEach(button => {
         button.disabled = true;
         if (gameState.checkAnswer(button.innerText)) {
-            colorAnswerButton(button, buttonColorCorrect);
+            colorAnswerButton(button, colorCorrect);
         } else {
-            colorAnswerButton(button, buttonColorDisabled);
+            colorAnswerButton(button, colorDisabled);
         }
     });
 
@@ -106,10 +106,10 @@ function answerPicked(buttonClicked) {
     if (gameState.checkAnswer(pickedAnswer)) {
         gameState.correctAnswer();
     } else {
-        colorAnswerButton(buttonClicked, buttonColorIncorrect);
+        colorAnswerButton(buttonClicked, colorIncorrect);
         gameState.incorrectAnswer();
     }
     enableMainButton();
-    colorMainButton(buttonColorEnabled);
+    colorMainButton(colorEnabled);
 }
 

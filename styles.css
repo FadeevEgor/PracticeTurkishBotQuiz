@@ -3,10 +3,10 @@
     --secondary-bg-color: var(--tg-theme-secondary-bg-color, grey);
     --text-color: var(--tg-theme-text-color, white);
     --button-text-color: var(--tg-theme-button-text-color, white);
-    --button-color-enabled: var(--tg-theme-button-color, #5288c1);
-    --button-color-disabled: color-mix(in srgb, var(--button-color-enabled) 50%, var(--primary-bg-color));
-    --button-color-correct: #00CC99;
-    --button-color-incorrect: #FF3333;
+    --color-enabled: var(--tg-theme-button-color, #5288c1);
+    --color-disabled: color-mix(in srgb, var(--color-enabled) 50%, var(--primary-bg-color));
+    --color-correct: #00CC99;
+    --color-incorrect: #FF3333;
     --question-height: 100px;
     --main-button-height: 25px;
 }
@@ -28,13 +28,14 @@ div svg {
     margin-right: 2%;
     margin-left: 2%;
     font-size: 28px;
+    color: var(--color-enabled);
 }
 
 #shuffle_button,
 #mirror_button {
     display: inline;
     background-color: transparent;
-    color: var(--button-color-enabled);
+    color: var(--color-enabled);
     font-size: 28px;
 }
 
@@ -59,7 +60,7 @@ div svg {
 
 button {
     border: none;
-    background-color: var(--button-color-enabled);
+    background-color: var(--color-enabled);
     color: var(--button-text-color);
     text-align: center;
 }
@@ -109,13 +110,42 @@ td {
     height: 36px
 }
 
-.header {
+#header_results {
     display: block;
+    font-weight: bold;
     font-size: 24px;
     margin-bottom: 50px;
+    margin-left: 2%;
+    margin-right: 2%;
+    color: var(--color-enabled);
 }
 
-.header_preview {
+.header_results_left {
+    float: left;
+    font-family: monospace;
+}
+
+#stats_correct,
+#stats_mistakes {
+    float: right;
+    font-family: monospace;
+}
+
+#stats_correct {
+    color: var(--color-correct);
+}
+
+#stats_mistakes {
+    color: var(--color-incorrect)
+}
+
+caption {
+    color: var(--color-enabled);
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+/* .header_preview {
     display: block;
     width: 100%;
     text-align: left;
@@ -123,4 +153,4 @@ td {
     font-size: 20px;
     color: var(--tg-theme-secondary-bg-color, grey);
 
-}
+} */

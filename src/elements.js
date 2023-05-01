@@ -119,7 +119,7 @@ function addTableRow(table, left, right, isCorrect) {
     var row = table.insertRow();
 
     if (isCorrect !== undefined) {
-        color = isCorrect ? correctTextColor : incorrectTextColor;
+        color = isCorrect ? colorCorrect : colorIncorrect;
         symbol = isCorrect ? "✔" : "✘";
         var correctnessCell = row.insertCell();
         var correctnessText = document.createTextNode(symbol);
@@ -169,15 +169,9 @@ function showStats(correctness) {
     nIncorrect_str = nIncorrect.toString().padStart(nSymbols, " ");
 
     stats_correct_div.innerText = `${percentCorrect}% [${nCorrect_str}/${total}]`
-    stats_correct_div.style.color = correctTextColor;
-    stats_correct_div.style.fontWeight = "bold";
-    stats_correct_div.style.fontFamily = "monospace";
     stats_mistakes_div.innerText = `${percentIncorrect}% [${nIncorrect_str}/${total}]`
-    stats_mistakes_div.style.color = incorrectTextColor;
-    stats_mistakes_div.style.fontWeight = "bold";
-    stats_mistakes_div.style.fontFamily = "monospace";
 
-    progressBar.setColors(buttonColorCorrect, buttonColorIncorrect);
+    progressBar.setColors(colorCorrect, colorIncorrect);
     progressBar.setHeight("5px");
     progressBar.set(0);
     progressBar.set(percentCorrect);

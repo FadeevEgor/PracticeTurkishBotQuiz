@@ -20,7 +20,7 @@
     -moz-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
-    background-color: var(--button-color-enabled);
+    background-color: var(--color-enabled);
 }
 
 .progressjs-theme-blue.progressjs-end {
@@ -37,7 +37,7 @@
 
 /* blue theme with overlay layer, no percent bar */
 .progressjs-theme-blueOverlay {
-    background-color: var(--tg-theme-bg-color, white);
+    background-color: var(--primary-bg-color);
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -o-transition: all 0.2s ease-out;
