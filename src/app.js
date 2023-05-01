@@ -1,4 +1,4 @@
-gameState = new GameState();
+var gameState = new GameState();
 disableMainButton();
 setMainButtonText("Start.");
 showMainButton();
