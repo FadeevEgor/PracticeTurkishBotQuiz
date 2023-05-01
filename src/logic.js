@@ -71,8 +71,7 @@ function displayQuestion(question, options) {
             button.disabled = false;
             colorAnswerButton(button, colorEnabled);
         } else {
-            button.innerText = "";
-            colorAnswerButton(button, "transparent");
+            colorAnswerButton(button, colorDisabled);
             button.disabled = true;
         }
     }
@@ -99,9 +98,7 @@ function answerPicked(buttonClicked) {
         if (gameState.checkAnswer(button.innerText)) {
             colorAnswerButton(button, colorCorrect);
         } else {
-            if (button.innerText != "") {
-                colorAnswerButton(button, colorDisabled);
-            }
+            colorAnswerButton(button, colorDisabled);
         }
     });
 
