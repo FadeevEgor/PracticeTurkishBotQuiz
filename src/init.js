@@ -1,11 +1,6 @@
 
 var telegram = window.Telegram.WebApp;
-if (telegram.platform == "unknown") {
-    var PRODUCTION = false;
-}
-else {
-    var PRODUCTION = true;
-}
+var PRODUCTION = !(telegram.platform == "unknown");
 var DEBUG = !PRODUCTION;
 
 
@@ -15,9 +10,8 @@ if (PRODUCTION) {
     var index1 = parseInt(url.searchParams.get("tgWebAppStartParam"));
     var index2 = parseInt(telegram.initDataUnsafe.start_param);
     var index = index2;
-} else {
-    var index = 13;
 }
+index ??= 21;
 
 var progressBar = progressJs();
 progressBar.setOptions({ "theme": "blue", overlayMode: false });
